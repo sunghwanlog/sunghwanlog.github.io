@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,13 @@
   <title>Sunghwan Log</title>
 
   <style>
+
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -18,17 +24,26 @@
       background: #ffffff;
     }
 
-    /* 전체 너비 */
+
+    /* =========================
+       전체 레이아웃
+    ========================= */
+
     .container {
       width: 90%;
       max-width: 1100px;
       margin: auto;
     }
 
-    /* 상단 메뉴 */
+
+    /* =========================
+       상단 메뉴
+    ========================= */
+
     header {
       padding: 28px 0;
       border-bottom: 1px solid #eeeeee;
+      background: #ffffff;
     }
 
     nav {
@@ -41,28 +56,48 @@
       font-family: Georgia, serif;
       font-size: 25px;
       font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo a {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .menu a {
-      margin-left: 25px;
+      margin-left: 22px;
       text-decoration: none;
       color: #555;
       font-size: 14px;
+      transition: color 0.2s;
     }
 
     .menu a:hover {
       color: #000;
     }
 
-    /* 메인 이미지 영역 */
+
+    /* =========================
+       메인 이미지 영역
+    ========================= */
+
     .hero {
       margin-top: 35px;
       height: 430px;
+
       border-radius: 18px;
+
       background:
         linear-gradient(
-          rgba(0,0,0,0.15),
-          rgba(0,0,0,0.45)
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.45)
         ),
         linear-gradient(
           135deg,
@@ -72,7 +107,9 @@
 
       display: flex;
       align-items: flex-end;
+
       padding: 45px;
+
       color: white;
     }
 
@@ -85,12 +122,18 @@
     .hero p {
       margin: 0;
       font-size: 17px;
+      line-height: 1.7;
     }
 
-    /* 최근 글 */
+
+    /* =========================
+       Recent Stories
+    ========================= */
+
     .section-title {
       margin-top: 55px;
       margin-bottom: 25px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -102,7 +145,11 @@
       margin: 0;
     }
 
-    /* 카드 */
+
+    /* =========================
+       게시글 카드
+    ========================= */
+
     .posts {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -112,14 +159,22 @@
     .card {
       border: 1px solid #e7e7e7;
       border-radius: 14px;
+
       overflow: hidden;
+
       background: white;
-      transition: 0.2s;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.08);
     }
 
     .card-image {
@@ -127,17 +182,40 @@
       background: #eeeeee;
     }
 
+
+    /* 임시 이미지 색상
+       나중에 직접 찍은 사진으로 교체합니다.
+    */
+
     .image-one {
-      background: linear-gradient(135deg, #e7b47e, #8297ae);
+      background:
+        linear-gradient(
+          135deg,
+          #e7b47e,
+          #8297ae
+        );
     }
 
     .image-two {
-      background: linear-gradient(135deg, #b78d6a, #ede2d4);
+      background:
+        linear-gradient(
+          135deg,
+          #b78d6a,
+          #ede2d4
+        );
     }
 
     .image-three {
-      background: linear-gradient(135deg, #80a9bb, #d8e2d5);
+      background:
+        linear-gradient(
+          135deg,
+          #80a9bb,
+          #d8e2d5
+        );
     }
+
+
+    /* 카드 내용 */
 
     .card-content {
       padding: 20px;
@@ -150,40 +228,142 @@
 
     .category {
       display: inline-block;
-      margin-top: 10px;
+
+      margin-top: 14px;
+
       padding: 5px 10px;
+
       background: #f1f3f5;
+
       border-radius: 20px;
+
       font-size: 11px;
+      color: #555;
     }
 
     .card h3 {
       margin: 12px 0 8px;
+
       font-size: 19px;
+      line-height: 1.4;
     }
 
     .card p {
       margin: 0;
+
       color: #666;
+
       line-height: 1.7;
+
       font-size: 14px;
     }
 
-    /* 하단 */
+
+    /* =========================
+       홈페이지 소개
+    ========================= */
+
+    .archive-intro {
+      margin-top: 75px;
+
+      padding: 50px;
+
+      background: #f8f8f6;
+
+      border-radius: 18px;
+
+      text-align: center;
+    }
+
+    .archive-intro h2 {
+      margin: 0 0 18px;
+
+      font-family: Georgia, serif;
+
+      font-size: 27px;
+    }
+
+    .archive-intro p {
+      max-width: 650px;
+
+      margin: auto;
+
+      color: #666;
+
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+
+    /* =========================
+       하단
+    ========================= */
+
     footer {
       margin-top: 80px;
+
       padding: 35px 0;
+
       border-top: 1px solid #eeeeee;
+
       text-align: center;
+
       color: #999;
+
       font-size: 13px;
     }
 
-    /* 스마트폰 */
-    @media (max-width: 750px) {
+
+    /* =========================
+       태블릿
+    ========================= */
+
+    @media (max-width: 950px) {
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       .menu {
-        display: none;
+        margin-top: 18px;
+        justify-content: flex-start;
+      }
+
+      .menu a {
+        margin-left: 0;
+        margin-right: 20px;
+        margin-bottom: 8px;
+      }
+
+      .posts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+
+    /* =========================
+       스마트폰
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      .container {
+        width: 92%;
+      }
+
+      header {
+        padding: 22px 0;
+      }
+
+      .menu {
+        gap: 10px 15px;
+      }
+
+      .menu a {
+        margin: 0;
+        font-size: 13px;
       }
 
       .hero {
@@ -195,144 +375,272 @@
         font-size: 38px;
       }
 
+      .hero p {
+        font-size: 15px;
+      }
+
       .posts {
         grid-template-columns: 1fr;
+      }
+
+      .archive-intro {
+        padding: 35px 25px;
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
+
   <div class="container">
+
     <nav>
 
       <div class="logo">
-        Sunghwan Log
+        <a href="#">
+          Sunghwan Log
+        </a>
       </div>
 
-<div class="menu">
-  <a href="#">Home</a>
-  <a href="#">Daily</a>
-  <a href="#">Photography</a>
-  <a href="#">Running</a>
-  <a href="#">Reading</a>
-  <a href="#">Journey</a>
-  <a href="#">Moments</a>
-  <a href="#">About</a>
-</div>
+
+      <div class="menu">
+
+        <a href="#">
+          Home
+        </a>
+
+        <a href="#">
+          Daily
+        </a>
+
+        <a href="#">
+          Photography
+        </a>
+
+        <a href="#">
+          Running
+        </a>
+
+        <a href="#">
+          Reading
+        </a>
+
+        <a href="#">
+          Journey
+        </a>
+
+        <a href="#">
+          Moments
+        </a>
+
+        <a href="#">
+          About
+        </a>
+
+      </div>
 
     </nav>
+
   </div>
+
 </header>
 
 
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <main class="container">
 
-  <!-- 메인 영역 -->
+
+  <!-- HERO -->
+
   <section class="hero">
 
     <div>
-      <h1>Sunghwan Log</h1>
-      <p>일상을 여행하듯, 기록을 음미하듯.</p>
+
+      <h1>
+        Sunghwan Log
+      </h1>
+
+      <p>
+        일상을 여행하듯,<br>
+        기록을 음미하듯.
+      </p>
+
     </div>
 
   </section>
 
 
-  <!-- 최근 기록 -->
+
+  <!-- =========================
+       RECENT STORIES
+  ========================= -->
+
   <div class="section-title">
 
-    <h2>Recent Stories</h2>
+    <h2>
+      Recent Stories
+    </h2>
 
   </div>
 
 
+
   <section class="posts">
 
-    <!-- 첫 번째 글 -->
+
+    <!-- 첫 번째 기록 -->
+
     <article class="card">
 
-      <div class="card-image image-one"></div>
+      <div class="card-image image-one">
+      </div>
 
       <div class="card-content">
 
-        <span class="date">2026. 09. 07</span>
+        <span class="date">
+          2026. 09. 07
+        </span>
 
-        <h3>나의 첫 번째 기록</h3>
+        <h3>
+          나의 첫 번째 기록
+        </h3>
 
         <p>
           나만의 작은 공간을 만들기 시작했다.
-          앞으로 이곳에 일상의 순간들을 기록하려 한다.
+          앞으로 이곳에 일상의 순간들을
+          하나씩 기록하려 한다.
         </p>
 
-        <span class="category">Daily</span>
+        <span class="category">
+          Daily
+        </span>
 
       </div>
 
     </article>
 
 
-    <!-- 두 번째 글 -->
+
+    <!-- 두 번째 기록 -->
+
     <article class="card">
 
-      <div class="card-image image-two"></div>
+      <div class="card-image image-two">
+      </div>
 
       <div class="card-content">
 
-        <span class="date">Coming soon</span>
+        <span class="date">
+          Coming soon
+        </span>
 
-        <h3>요즘 드는 생각들</h3>
+        <h3>
+          사진으로 남긴 하루
+        </h3>
 
         <p>
-          평범한 하루에서 발견한 생각과
-          기억하고 싶은 순간들을 남기는 공간.
+          무심코 지나칠 수도 있었던 풍경과
+          순간들을 사진으로 남겨보려 한다.
         </p>
 
-        <span class="category">Thoughts</span>
+        <span class="category">
+          Photography
+        </span>
 
       </div>
 
     </article>
 
 
-    <!-- 세 번째 글 -->
+
+    <!-- 세 번째 기록 -->
+
     <article class="card">
 
-      <div class="card-image image-three"></div>
+      <div class="card-image image-three">
+      </div>
 
       <div class="card-content">
 
-        <span class="date">Coming soon</span>
+        <span class="date">
+          Coming soon
+        </span>
 
-        <h3>다음 여행</h3>
+        <h3>
+          앞으로 걸어갈 길
+        </h3>
 
         <p>
-          걸었던 길과 바라본 풍경,
-          그리고 여행에서 만난 순간들을 기록합니다.
+          목표를 향해 공부하고 도전하며
+          조금씩 변화해 가는 과정을 기록한다.
         </p>
 
-        <span class="category">Travel</span>
+        <span class="category">
+          Journey
+        </span>
 
       </div>
 
     </article>
+
 
   </section>
+
+
+
+  <!-- =========================
+       ARCHIVE INTRO
+  ========================= -->
+
+  <section class="archive-intro">
+
+    <h2>
+      Ordinary days, quietly collected.
+    </h2>
+
+    <p>
+      평범한 하루와 사진,
+      달리고 걸었던 시간,
+      읽은 책과 그때의 생각,
+      무언가를 향해 나아가는 과정,
+      그리고 소중한 사람들과 함께한 순간들을
+      천천히 기록합니다.
+    </p>
+
+  </section>
+
 
 </main>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-  © 2026 Sunghwan Log · Keep going, keep growing.
+  © 2026 Sunghwan Log ·
+  Keep going, keep growing.
 
 </footer>
 
 
 </body>
+
 </html>
