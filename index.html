@@ -1,10 +1,12 @@
+---
+---
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
   <title>Sunghwan Log</title>
 
   <style>
@@ -88,27 +90,29 @@
        메인 이미지 영역
     ========================= */
 
-.hero {
-  margin-top: 35px;
-  height: 430px;
-  border-radius: 18px;
+    .hero {
+      margin-top: 35px;
+      height: 430px;
+      border-radius: 18px;
 
-  background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.10),
-      rgba(0, 0, 0, 0.45)
-    ),
-    url("images/hero.jpg");
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.10),
+          rgba(0, 0, 0, 0.45)
+        ),
+        url("{{ '/images/hero.jpg' | relative_url }}");
 
-  background-size: cover;
-  background-position: center 70%;
-  background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 70%;
+      background-repeat: no-repeat;
 
-  display: flex;
-  align-items: flex-end;
-  padding: 45px 45px 30px 45px; /* 15px 아래로 */
-  color: white;
-}
+      display: flex;
+      align-items: flex-end;
+
+      padding: 45px 45px 30px 45px;
+
+      color: white;
+    }
 
     .hero h1 {
       font-family: Georgia, serif;
@@ -153,7 +157,19 @@
       gap: 25px;
     }
 
+
+    /* 카드 전체를 클릭 가능하게 */
+
+    .post-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+
     .card {
+      height: 100%;
+
       border: 1px solid #e7e7e7;
       border-radius: 14px;
 
@@ -174,45 +190,123 @@
         rgba(0, 0, 0, 0.08);
     }
 
-    .card-image {
+
+    /* =========================
+       실제 대표 이미지
+    ========================= */
+
+    .card-image-real {
+      width: 100%;
       height: 190px;
-      background: #eeeeee;
+
+      object-fit: cover;
+      display: block;
+
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover .card-image-real {
+      transform: scale(1.03);
     }
 
 
-    /* 임시 이미지 색상
-       나중에 직접 찍은 사진으로 교체합니다.
-    */
+    /* =========================
+       사진이 없는 글
+    ========================= */
 
-    .image-one {
+    .card-placeholder {
+      width: 100%;
+      height: 190px;
+    }
+
+
+    /* Daily */
+
+    .placeholder-daily {
       background:
         linear-gradient(
           135deg,
-          #e7b47e,
-          #8297ae
+          #eee2d3,
+          #f7f4ef
         );
     }
 
-    .image-two {
+
+    /* Running */
+
+    .placeholder-running {
       background:
         linear-gradient(
           135deg,
-          #b78d6a,
-          #ede2d4
+          #dbe8df,
+          #eef3ed
         );
     }
 
-    .image-three {
+
+    /* Reading */
+
+    .placeholder-reading {
       background:
         linear-gradient(
           135deg,
-          #80a9bb,
-          #d8e2d5
+          #ddd4ca,
+          #f0ebe6
         );
     }
 
 
-    /* 카드 내용 */
+    /* Journey */
+
+    .placeholder-journey {
+      background:
+        linear-gradient(
+          135deg,
+          #d9e7ed,
+          #eef4f5
+        );
+    }
+
+
+    /* Moments */
+
+    .placeholder-moments {
+      background:
+        linear-gradient(
+          135deg,
+          #f0dfd4,
+          #f6f0eb
+        );
+    }
+
+
+    /* Photography */
+
+    .placeholder-photography {
+      background:
+        linear-gradient(
+          135deg,
+          #e3e8eb,
+          #f4f5f5
+        );
+    }
+
+
+    /* 기타 카테고리 */
+
+    .placeholder-default {
+      background:
+        linear-gradient(
+          135deg,
+          #eeeeee,
+          #f7f7f7
+        );
+    }
+
+
+    /* =========================
+       카드 내용
+    ========================= */
 
     .card-content {
       padding: 20px;
@@ -405,21 +499,27 @@
     <nav>
 
       <div class="logo">
-        <a href="#">
+
+        <a href="{{ '/' | relative_url }}">
           Sunghwan Log
         </a>
+
       </div>
 
 
       <div class="menu">
 
-<a href="index.html">Home</a>
+        <a href="{{ '/' | relative_url }}">
+          Home
+        </a>
 
         <a href="#">
           Daily
         </a>
 
-<a href="photography.html">Photography</a>
+        <a href="{{ '/photography.html' | relative_url }}">
+          Photography
+        </a>
 
         <a href="#">
           Running
@@ -458,7 +558,9 @@
 <main class="container">
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
   <section class="hero">
 
@@ -492,100 +594,176 @@
   <section class="posts">
 
 
-    <!-- 첫 번째 기록 -->
+    <!--
+      _posts 폴더에 있는 글 가운데
+      최신 글 3개를 자동으로 불러옵니다.
+    -->
 
-    <article class="card">
-
-      <div class="card-image image-one">
-      </div>
-
-      <div class="card-content">
-
-        <span class="date">
-          2026. 09. 07
-        </span>
-
-        <h3>
-          나의 첫 번째 기록
-        </h3>
-
-        <p>
-          나만의 작은 공간을 만들기 시작했다.
-          앞으로 이곳에 일상의 순간들을
-          하나씩 기록하려 한다.
-        </p>
-
-        <span class="category">
-          Daily
-        </span>
-
-      </div>
-
-    </article>
+    {% for post in site.posts limit:3 %}
 
 
+      <!-- 카드 클릭 시 해당 게시물로 이동 -->
 
-    <!-- 두 번째 기록 -->
-
-    <article class="card">
-
-      <div class="card-image image-two">
-      </div>
-
-      <div class="card-content">
-
-        <span class="date">
-          Coming soon
-        </span>
-
-        <h3>
-          사진으로 남긴 하루
-        </h3>
-
-        <p>
-          무심코 지나칠 수도 있었던 풍경과
-          순간들을 사진으로 남겨보려 한다.
-        </p>
-
-        <span class="category">
-          Photography
-        </span>
-
-      </div>
-
-    </article>
+      <a
+        class="post-link"
+        href="{{ post.url | relative_url }}"
+      >
 
 
+        <article class="card">
 
-    <!-- 세 번째 기록 -->
 
-    <article class="card">
+          <!-- =========================
+               대표 이미지
+          ========================= -->
 
-      <div class="card-image image-three">
-      </div>
+          {% if post.image %}
 
-      <div class="card-content">
 
-        <span class="date">
-          Coming soon
-        </span>
+            <!-- 이미지가 있는 게시물 -->
 
-        <h3>
-          앞으로 걸어갈 길
-        </h3>
+            <img
+              class="card-image-real"
+              src="{{ post.image | relative_url }}"
+              alt="{{ post.title }}"
+            >
 
-        <p>
-          목표를 향해 공부하고 도전하며
-          조금씩 변화해 가는 과정을 기록한다.
-        </p>
 
-        <span class="category">
-          Journey
-        </span>
+          {% else %}
 
-      </div>
 
-    </article>
+            <!-- =========================
+                 이미지가 없는 게시물
+            ========================= -->
+
+
+            {% if post.category == "daily" %}
+
+              <div
+                class="card-placeholder placeholder-daily">
+              </div>
+
+
+            {% elsif post.category == "running" %}
+
+              <div
+                class="card-placeholder placeholder-running">
+              </div>
+
+
+            {% elsif post.category == "reading" %}
+
+              <div
+                class="card-placeholder placeholder-reading">
+              </div>
+
+
+            {% elsif post.category == "journey" %}
+
+              <div
+                class="card-placeholder placeholder-journey">
+              </div>
+
+
+            {% elsif post.category == "moments" %}
+
+              <div
+                class="card-placeholder placeholder-moments">
+              </div>
+
+
+            {% elsif post.category == "photography" %}
+
+              <div
+                class="card-placeholder placeholder-photography">
+              </div>
+
+
+            {% else %}
+
+              <div
+                class="card-placeholder placeholder-default">
+              </div>
+
+
+            {% endif %}
+
+
+          {% endif %}
+
+
+
+          <!-- =========================
+               카드 텍스트
+          ========================= -->
+
+          <div class="card-content">
+
+
+            <!--
+              Photography는 촬영 시점을 우선 표시합니다.
+
+              예:
+              2008년 봄
+
+              다른 카테고리는 게시 날짜를 표시합니다.
+            -->
+
+            {% if post.category == "photography"
+              and post.shooting_date
+              and post.shooting_date != "" %}
+
+
+              <span class="date">
+                {{ post.shooting_date }}
+              </span>
+
+
+            {% else %}
+
+
+              <span class="date">
+                {{ post.date | date: "%Y. %m. %d" }}
+              </span>
+
+
+            {% endif %}
+
+
+
+            <!-- 제목 -->
+
+            <h3>
+              {{ post.title }}
+            </h3>
+
+
+
+            <!-- 카드 설명 -->
+
+            <p>
+              {{ post.description }}
+            </p>
+
+
+
+            <!-- 카테고리 -->
+
+            <span class="category">
+              {{ post.category | capitalize }}
+            </span>
+
+
+          </div>
+
+
+        </article>
+
+
+      </a>
+
+
+    {% endfor %}
 
 
   </section>
