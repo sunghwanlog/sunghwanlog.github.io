@@ -88,19 +88,39 @@
       gap: 25px;
     }
 
-    .photo-card {
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid #e8e8e8;
-      background: white;
-    }
+.photo-card {
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #e8e8e8;
+  background: white;
 
-    .photo-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-    }
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+    
+    .photo-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.photo-card:hover img {
+  transform: scale(1.03);
+}
 
     .photo-content {
       padding: 18px;
@@ -212,29 +232,35 @@
 
   <section class="gallery">
 
-    <article class="photo-card">
+<a class="photo-link" href="posts/photo-001.html">
 
-      <img src="images/hero.jpg" alt="사진 기록">
+  <article class="photo-card">
 
-      <div class="photo-content">
+    <img
+      src="images/hero.jpg"
+      alt="카메라가 놓여 있는 풍경"
+    >
 
-        <span class="photo-date">
-          2026. 09. 07
-        </span>
+    <div class="photo-content">
 
-        <h2>
-          첫 번째 사진 기록
-        </h2>
+      <span class="photo-date">
+        2026. 09. 07
+      </span>
 
-        <p>
-          카메라와 함께한 어느 날의 풍경.
-          사진 한 장과 함께 그때의 기억을 남긴다.
-        </p>
+      <h2>
+        첫 번째 사진 기록
+      </h2>
 
-      </div>
+      <p>
+        카메라와 함께한 어느 날의 풍경.
+        사진 한 장과 함께 그때의 기억을 남긴다.
+      </p>
 
-    </article>
+    </div>
 
+  </article>
+
+</a>
 
     <article class="photo-card">
 
