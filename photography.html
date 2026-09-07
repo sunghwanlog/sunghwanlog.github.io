@@ -249,9 +249,11 @@
 
         <div class="photo-content">
 
+          {% if post.shooting_date and post.shooting_date != "" %}
           <span class="photo-date">
-            {{ post.date | date: "%Y. %m. %d" }}
+            {{ post.shooting_date }}
           </span>
+          {% endif %}
 
           <h2>
             {{ post.title }}
