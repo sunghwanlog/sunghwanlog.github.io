@@ -599,7 +599,9 @@
       최신 글 3개를 자동으로 불러옵니다.
     -->
 
-    {% for post in site.posts limit:3 %}
+    {% assign recent_posts = site.posts | where_exp: "post", "post.category != 'running'" %}
+    
+    {% for post in recent_posts limit:3 %}
 
 
       <!-- 카드 클릭 시 해당 게시물로 이동 -->
