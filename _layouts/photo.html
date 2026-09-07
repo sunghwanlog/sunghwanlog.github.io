@@ -118,22 +118,23 @@
     /* 여러 장짜리 사진 */
 
     .photo-gallery {
-      margin-top: 40px;
+      width: 100%;
+      max-width: 620px;
+      margin: 40px auto 0;
       display: flex;
       flex-direction: column;
       gap: 28px;
     }
 
     .gallery-photo {
+      width: 100%;
       display: flex;
       justify-content: center;
     }
 
     .gallery-photo img {
-      width: auto;
-      max-width: 100%;
-      max-height: 650px;
-      object-fit: contain;
+      width: 100%;
+      height: auto;
       border-radius: 16px;
       display: block;
     }
@@ -237,8 +238,13 @@
         border-radius: 10px;
       }
 
+      .photo-gallery {
+        max-width: 100%;
+      }
+
       .gallery-photo img {
-        max-height: 520px;
+        width: 100%;
+        height: auto;
         border-radius: 10px;
       }
 
