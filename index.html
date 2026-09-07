@@ -88,30 +88,27 @@
        메인 이미지 영역
     ========================= */
 
-    .hero {
-      margin-top: 35px;
-      height: 430px;
+.hero {
+  margin-top: 35px;
+  height: 430px;
+  border-radius: 18px;
 
-      border-radius: 18px;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.10),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("images/hero.jpg");
 
-      background:
-        linear-gradient(
-          rgba(0, 0, 0, 0.15),
-          rgba(0, 0, 0, 0.45)
-        ),
-        linear-gradient(
-          135deg,
-          #d7b899,
-          #7890a8
-        );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-      display: flex;
-      align-items: flex-end;
-
-      padding: 45px;
-
-      color: white;
-    }
+  display: flex;
+  align-items: flex-end;
+  padding: 45px;
+  color: white;
+}
 
     .hero h1 {
       font-family: Georgia, serif;
