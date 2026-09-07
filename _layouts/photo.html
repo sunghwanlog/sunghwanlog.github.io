@@ -294,9 +294,11 @@
         Photography
       </span>
 
+      {% if page.shooting_date and page.shooting_date != "" %}
       <span>
-        {{ page.date | date: "%Y. %m. %d" }}
+        {{ page.shooting_date }}
       </span>
+      {% endif %}
 
     </div>
 
