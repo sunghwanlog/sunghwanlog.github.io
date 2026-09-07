@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -230,94 +232,44 @@
   </section>
 
 
-  <section class="gallery">
+<section class="gallery">
 
-<a class="photo-link" href="posts/photo-001.html">
+  {% assign photo_posts = site.posts | where: "category", "photography" %}
 
-  <article class="photo-card">
+  {% for post in photo_posts %}
 
-    <img
-      src="images/photo-001.jpg"
-      alt="카메라가 놓여 있는 풍경"
-    >
+    <a class="photo-link" href="{{ post.url | relative_url }}">
 
-    <div class="photo-content">
+      <article class="photo-card">
 
-      <span class="photo-date">
-        2026. 09. 07
-      </span>
+        <img
+          src="{{ post.image | relative_url }}"
+          alt="{{ post.title }}"
+        >
 
-      <h2>
-        첫 번째 사진 기록
-      </h2>
+        <div class="photo-content">
 
-      <p>
-        카메라와 함께한 어느 날의 풍경.
-        사진 한 장과 함께 그때의 기억을 남긴다.
-      </p>
+          <span class="photo-date">
+            {{ post.date | date: "%Y. %m. %d" }}
+          </span>
 
-    </div>
+          <h2>
+            {{ post.title }}
+          </h2>
 
-  </article>
+          <p>
+            {{ post.description }}
+          </p>
 
-</a>
+        </div>
 
-    <article class="photo-card">
+      </article>
 
-      <div style="
-        height:260px;
-        background:linear-gradient(135deg,#d8b28a,#899aa8);
-      ">
-      </div>
+    </a>
 
-      <div class="photo-content">
+  {% endfor %}
 
-        <span class="photo-date">
-          Coming soon
-        </span>
-
-        <h2>
-          다음 기록
-        </h2>
-
-        <p>
-          앞으로 촬영한 사진을
-          이 공간에 하나씩 추가할 예정입니다.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <article class="photo-card">
-
-      <div style="
-        height:260px;
-        background:linear-gradient(135deg,#86a9b7,#d8e0d4);
-      ">
-      </div>
-
-      <div class="photo-content">
-
-        <span class="photo-date">
-          Coming soon
-        </span>
-
-        <h2>
-          또 다른 순간
-        </h2>
-
-        <p>
-          평범하게 지나칠 수도 있었던
-          장면들을 사진으로 기억합니다.
-        </p>
-
-      </div>
-
-    </article>
-
-  </section>
+</section>
 
 </main>
 
