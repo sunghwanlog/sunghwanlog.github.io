@@ -214,7 +214,7 @@
 
 
     /* =========================
-       이전 글 / 다음 글
+       NEXT / PREVIOUS
     ========================= */
 
     .post-navigation {
@@ -239,30 +239,37 @@
     }
 
 
-    /* 이전/다음 영역 */
+    /* 왼쪽 / 오른쪽 영역 */
 
     .nav-side {
       min-width: 0;
     }
 
-    .nav-previous {
+    /* NEXT는 왼쪽 */
+
+    .nav-next {
       text-align: left;
     }
 
-    .nav-next {
+    /* PREVIOUS는 오른쪽 */
+
+    .nav-previous {
       text-align: right;
     }
 
 
-    /* Pre / Post 글자 */
+    /* NEXT / PREVIOUS 글자 */
 
     .nav-label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
 
       color: #999;
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1.4;
+
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
     }
 
 
@@ -270,6 +277,7 @@
 
     .nav-title {
       display: block;
+      margin-bottom: 12px;
 
       font-family: Georgia, "Noto Serif KR", serif;
       font-size: 15px;
@@ -278,6 +286,40 @@
       color: #444;
 
       overflow-wrap: break-word;
+    }
+
+
+    /* 작은 대표사진 */
+
+    .nav-thumbnail {
+      width: 150px;
+      height: 95px;
+
+      object-fit: cover;
+      border-radius: 8px;
+
+      display: block;
+
+      transition:
+        opacity 0.2s,
+        transform 0.2s;
+    }
+
+    /* NEXT 사진은 왼쪽 정렬 */
+
+    .nav-next .nav-thumbnail {
+      margin-right: auto;
+    }
+
+    /* PREVIOUS 사진은 오른쪽 정렬 */
+
+    .nav-previous .nav-thumbnail {
+      margin-left: auto;
+    }
+
+    .nav-side a:hover .nav-thumbnail {
+      opacity: 0.85;
+      transform: translateY(-2px);
     }
 
 
@@ -372,7 +414,7 @@
       }
 
 
-      /* 모바일에서는 이전/다음 영역을 조금 더 단순하게 */
+      /* 모바일 이전/다음 */
 
       .post-navigation {
         grid-template-columns: 1fr 1fr;
@@ -391,6 +433,11 @@
 
       .nav-title {
         font-size: 14px;
+      }
+
+      .nav-thumbnail {
+        width: 120px;
+        height: 78px;
       }
 
     }
@@ -654,27 +701,39 @@
 
 
     <!-- =========================
-         이전 글 / 목록 / 다음 글
+         NEXT / 목록 / PREVIOUS
     ========================= -->
 
     <div class="post-navigation">
 
 
-      <!-- 이전 글 -->
+      <!-- NEXT : 더 최신 글 -->
 
-      <div class="nav-side nav-previous">
+      <div class="nav-side nav-next">
 
-        {% if previous_photo %}
+        {% if next_photo %}
 
-          <a href="{{ previous_photo.url | relative_url }}">
+          <a href="{{ next_photo.url | relative_url }}">
 
             <span class="nav-label">
-              ← PREVIOUS
+              ← NEXT
             </span>
 
             <span class="nav-title">
-              {{ previous_photo.title }}
+              {{ next_photo.title }}
             </span>
+
+
+            {% if next_photo.image %}
+
+              <img
+                class="nav-thumbnail"
+                src="{{ next_photo.image | relative_url }}"
+                alt="{{ next_photo.title }}"
+              >
+
+            {% endif %}
+
 
           </a>
 
@@ -696,21 +755,33 @@
 
 
 
-      <!-- 다음 글 -->
+      <!-- PREVIOUS : 더 오래된 글 -->
 
-      <div class="nav-side nav-next">
+      <div class="nav-side nav-previous">
 
-        {% if next_photo %}
+        {% if previous_photo %}
 
-          <a href="{{ next_photo.url | relative_url }}">
+          <a href="{{ previous_photo.url | relative_url }}">
 
             <span class="nav-label">
-              NEXT →
+              PREVIOUS →
             </span>
 
             <span class="nav-title">
-              {{ next_photo.title }}
+              {{ previous_photo.title }}
             </span>
+
+
+            {% if previous_photo.image %}
+
+              <img
+                class="nav-thumbnail"
+                src="{{ previous_photo.image | relative_url }}"
+                alt="{{ previous_photo.title }}"
+              >
+
+            {% endif %}
+
 
           </a>
 
