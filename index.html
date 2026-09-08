@@ -244,9 +244,9 @@
     }
 
 
-    /* Reading */
+    /* Reflections */
 
-    .placeholder-reading {
+    .placeholder-Reflections {
       background:
         linear-gradient(
           135deg,
@@ -524,8 +524,8 @@
           Running
         </a>
 
-        <a href="#">
-          Reading
+        <a href="{{ '/reflections.html' | relative_url }}">
+          Reflections
         </a>
 
         <a href="#">
@@ -652,10 +652,10 @@
               </div>
 
 
-            {% elsif post.category == "reading" %}
+            {% elsif post.category == "Reflections" %}
 
               <div
-                class="card-placeholder placeholder-reading">
+                class="card-placeholder placeholder-reflections">
               </div>
 
 
