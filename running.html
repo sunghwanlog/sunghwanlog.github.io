@@ -1,0 +1,532 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Running | Sunghwan Log</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      color: #222;
+      background: #ffffff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo a {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .menu a {
+      margin-left: 22px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      color: #000;
+    }
+
+    .menu a.active {
+      color: #000;
+      font-weight: 500;
+    }
+
+
+    /* =========================
+       RUNNING HEADER
+    ========================= */
+
+    .running-header {
+      max-width: 820px;
+      margin: 75px auto 0;
+    }
+
+    .running-header h1 {
+      margin: 0 0 14px;
+
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 52px;
+      line-height: 1.2;
+    }
+
+    .running-intro {
+      max-width: 620px;
+      margin: 0;
+
+      color: #777;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       RUNNING LIST
+    ========================= */
+
+    .running-list {
+      max-width: 820px;
+      margin: 65px auto 0;
+    }
+
+    .running-post {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 34px;
+
+      padding: 32px 0;
+
+      border-top: 1px solid #eeeeee;
+    }
+
+    .running-post:last-child {
+      border-bottom: 1px solid #eeeeee;
+    }
+
+
+    /* 날짜 */
+
+    .running-date {
+      padding-top: 3px;
+    }
+
+    .running-date-main {
+      display: block;
+
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1.3;
+
+      color: #444;
+    }
+
+    .running-date-year {
+      display: block;
+      margin-top: 5px;
+
+      color: #aaa;
+      font-size: 10px;
+
+      letter-spacing: 0.8px;
+    }
+
+
+    /* 기록 */
+
+    .running-content a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .running-content h2 {
+      margin: 0 0 8px;
+
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 23px;
+      line-height: 1.4;
+
+      font-weight: normal;
+    }
+
+    .running-content a:hover h2 {
+      color: #777;
+    }
+
+
+    /* 거리 / 시간 / 페이스 */
+
+    .running-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+
+      margin: 14px 0 12px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .stat-value {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .stat-label {
+      color: #aaa;
+      font-size: 9px;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+
+    /* 설명 */
+
+    .running-description {
+      margin: 0;
+
+      color: #777;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       EMPTY
+    ========================= */
+
+    .empty-running {
+      padding: 50px 0;
+
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+
+      color: #999;
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 90px;
+      padding: 35px 0;
+
+      border-top: 1px solid #eeeeee;
+
+      text-align: center;
+
+      color: #999;
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        margin-top: 18px;
+      }
+
+      .menu a {
+        margin-left: 0;
+        margin-right: 18px;
+        margin-bottom: 8px;
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      .running-header {
+        margin-top: 50px;
+      }
+
+      .running-header h1 {
+        font-size: 42px;
+      }
+
+      .running-list {
+        margin-top: 45px;
+      }
+
+      .running-post {
+        grid-template-columns: 1fr;
+        gap: 12px;
+
+        padding: 26px 0;
+      }
+
+      .running-stats {
+        gap: 18px;
+      }
+
+      .running-content h2 {
+        font-size: 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <div class="logo">
+        <a href="{{ '/' | relative_url }}">
+          Sunghwan Log
+        </a>
+      </div>
+
+      <div class="menu">
+
+        <a href="{{ '/' | relative_url }}">
+          Home
+        </a>
+
+        <a href="{{ '/daily.html' | relative_url }}">
+          Daily
+        </a>
+
+        <a href="{{ '/photography.html' | relative_url }}">
+          Photography
+        </a>
+
+        <a
+          class="active"
+          href="{{ '/running.html' | relative_url }}"
+        >
+          Running
+        </a>
+
+        <a href="#">
+          Reading
+        </a>
+
+        <a href="#">
+          Journey
+        </a>
+
+        <a href="#">
+          Moments
+        </a>
+
+        <a href="#">
+          About
+        </a>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+
+  <section class="running-header">
+
+    <h1>
+      Running
+    </h1>
+
+    <p class="running-intro">
+      Miles, routes, pace, and the days in between.
+    </p>
+
+  </section>
+
+
+  <section class="running-list">
+
+    {% assign running_posts = site.posts
+      | where: "category", "running" %}
+
+
+    {% if running_posts.size > 0 %}
+
+      {% for post in running_posts %}
+
+        <article class="running-post">
+
+
+          <div class="running-date">
+
+            <span class="running-date-main">
+              {{ post.date | date: "%m.%d" }}
+            </span>
+
+            <span class="running-date-year">
+              {{ post.date | date: "%Y" }}
+            </span>
+
+          </div>
+
+
+          <div class="running-content">
+
+            <a href="{{ post.url | relative_url }}">
+
+              <h2>
+                {{ post.title }}
+              </h2>
+
+            </a>
+
+
+            <div class="running-stats">
+
+
+              {% if post.distance and post.distance != "" %}
+
+                <div class="stat">
+
+                  <span class="stat-value">
+                    {{ post.distance }}
+                  </span>
+
+                  <span class="stat-label">
+                    Distance
+                  </span>
+
+                </div>
+
+              {% endif %}
+
+
+              {% if post.duration and post.duration != "" %}
+
+                <div class="stat">
+
+                  <span class="stat-value">
+                    {{ post.duration }}
+                  </span>
+
+                  <span class="stat-label">
+                    Time
+                  </span>
+
+                </div>
+
+              {% endif %}
+
+
+              {% if post.pace and post.pace != "" %}
+
+                <div class="stat">
+
+                  <span class="stat-value">
+                    {{ post.pace }}
+                  </span>
+
+                  <span class="stat-label">
+                    Pace
+                  </span>
+
+                </div>
+
+              {% endif %}
+
+
+            </div>
+
+
+            {% if post.description and post.description != "" %}
+
+              <p class="running-description">
+                {{ post.description }}
+              </p>
+
+            {% endif %}
+
+
+          </div>
+
+
+        </article>
+
+      {% endfor %}
+
+
+    {% else %}
+
+      <div class="empty-running">
+        아직 작성된 Running 기록이 없습니다.
+      </div>
+
+    {% endif %}
+
+  </section>
+
+
+</main>
+
+
+<footer>
+
+  © 2026 Sunghwan Log ·
+  Ordinary days, quietly collected.
+
+</footer>
+
+
+</body>
+
+</html>
