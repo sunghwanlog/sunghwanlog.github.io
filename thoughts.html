@@ -1,0 +1,600 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Thoughts | Sunghwan Log</title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      margin: 0;
+
+      font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
+      color: #222;
+      background: #ffffff;
+    }
+
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+
+      margin: auto;
+    }
+
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      padding: 28px 0;
+
+      border-bottom: 1px solid #eeeeee;
+    }
+
+
+    nav {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+    }
+
+
+    .logo {
+      font-family: Georgia, serif;
+
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+
+    .logo a {
+      text-decoration: none;
+      color: #222;
+    }
+
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: flex-end;
+    }
+
+
+    .menu a {
+      margin-left: 22px;
+
+      text-decoration: none;
+
+      color: #555;
+
+      font-size: 14px;
+    }
+
+
+    .menu a:hover {
+      color: #000;
+    }
+
+
+    .menu a.active {
+      color: #000;
+
+      font-weight: 500;
+    }
+
+
+
+    /* =========================
+       THOUGHTS HEADER
+    ========================= */
+
+    .thoughts-header {
+      max-width: 820px;
+
+      margin: 75px auto 0;
+    }
+
+
+    .thoughts-header h1 {
+      margin: 0 0 14px;
+
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
+      font-size: 52px;
+      line-height: 1.2;
+    }
+
+
+    .thoughts-intro {
+      max-width: 650px;
+
+      margin: 0;
+
+      color: #777;
+
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+
+
+    /* =========================
+       THOUGHTS LIST
+    ========================= */
+
+    .thoughts-list {
+      max-width: 820px;
+
+      margin: 65px auto 0;
+    }
+
+
+    .thought-link {
+      display: block;
+
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    .thought-post {
+      display: grid;
+
+      grid-template-columns:
+        90px
+        minmax(0, 1fr);
+
+      gap: 30px;
+
+      align-items: start;
+
+      padding: 34px 0;
+
+      border-top: 1px solid #eeeeee;
+
+      transition:
+        transform 0.2s,
+        opacity 0.2s;
+    }
+
+
+    .thought-link:last-child .thought-post {
+      border-bottom: 1px solid #eeeeee;
+    }
+
+
+    .thought-link:hover .thought-post {
+      transform: translateY(-2px);
+    }
+
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    .thought-date {
+      align-self: start;
+
+      padding-top: 2px;
+    }
+
+
+    .thought-day {
+      display: block;
+
+      font-family: Georgia, serif;
+
+      font-size: 30px;
+      line-height: 1;
+
+      color: #333;
+    }
+
+
+    .thought-month {
+      display: block;
+
+      margin-top: 7px;
+
+      color: #999;
+
+      font-size: 11px;
+
+      letter-spacing: 0.8px;
+
+      text-transform: uppercase;
+    }
+
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .thought-content {
+      max-width: 600px;
+    }
+
+
+    .thought-content h2 {
+      margin: 0 0 11px;
+
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
+      font-size: 24px;
+      line-height: 1.45;
+
+      font-weight: normal;
+
+      transition: color 0.2s;
+    }
+
+
+    .thought-link:hover .thought-content h2 {
+      color: #777;
+    }
+
+
+    .thought-description {
+      margin: 0;
+
+      color: #777;
+
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+
+
+    /* =========================
+       EMPTY STATE
+    ========================= */
+
+    .empty-thoughts {
+      padding: 50px 0;
+
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+
+      color: #999;
+
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 90px;
+
+      padding: 35px 0;
+
+      border-top: 1px solid #eeeeee;
+
+      text-align: center;
+
+      color: #999;
+
+      font-size: 13px;
+    }
+
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+
+      .menu {
+        margin-top: 18px;
+      }
+
+
+      .menu a {
+        margin-left: 0;
+        margin-right: 18px;
+        margin-bottom: 8px;
+      }
+
+    }
+
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      .thoughts-header {
+        margin-top: 50px;
+      }
+
+
+      .thoughts-header h1 {
+        font-size: 42px;
+      }
+
+
+      .thoughts-list {
+        margin-top: 45px;
+      }
+
+
+      .thought-post {
+        grid-template-columns:
+          58px
+          minmax(0, 1fr);
+
+        gap: 18px;
+
+        padding: 28px 0;
+      }
+
+
+      .thought-day {
+        font-size: 25px;
+      }
+
+
+      .thought-content h2 {
+        font-size: 21px;
+      }
+
+
+      .thought-description {
+        font-size: 13px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+
+      <div class="logo">
+
+        <a href="{{ '/' | relative_url }}">
+          Sunghwan Log
+        </a>
+
+      </div>
+
+
+
+      <div class="menu">
+
+        <a href="{{ '/' | relative_url }}">
+          Home
+        </a>
+
+        <a href="{{ '/photography.html' | relative_url }}">
+          Photography
+        </a>
+
+        <a href="{{ '/daily.html' | relative_url }}">
+          Daily
+        </a>
+
+        <a href="{{ '/running.html' | relative_url }}">
+          Running
+        </a>
+
+        <a href="{{ '/reflections.html' | relative_url }}">
+          Reflections
+        </a>
+
+        <a
+          class="active"
+          href="{{ '/thoughts.html' | relative_url }}"
+        >
+          Thoughts
+        </a>
+
+        <a href="#">
+          Moments
+        </a>
+
+        <a href="#">
+          About
+        </a>
+
+      </div>
+
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+  <!-- Thoughts 소개 -->
+
+  <section class="thoughts-header">
+
+    <h1>
+      Thoughts
+    </h1>
+
+    <p class="thoughts-intro">
+      Notes on life, time, and the things I find myself thinking about.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       THOUGHTS LIST
+  ========================= -->
+
+  <section class="thoughts-list">
+
+
+    {% assign thought_posts = site.posts
+      | where: "category", "thoughts" %}
+
+
+    {% if thought_posts.size > 0 %}
+
+
+      {% for post in thought_posts %}
+
+
+        <a
+          class="thought-link"
+          href="{{ post.url | relative_url }}"
+        >
+
+          <article class="thought-post">
+
+
+            <!-- 날짜 -->
+
+            <div class="thought-date">
+
+              <span class="thought-day">
+                {{ post.date | date: "%d" }}
+              </span>
+
+              <span class="thought-month">
+                {{ post.date | date: "%b %Y" }}
+              </span>
+
+            </div>
+
+
+
+            <!-- 내용 -->
+
+            <div class="thought-content">
+
+              <h2>
+                {{ post.title }}
+              </h2>
+
+
+              {% if post.description and post.description != "" %}
+
+                <p class="thought-description">
+                  {{ post.description }}
+                </p>
+
+              {% endif %}
+
+            </div>
+
+
+          </article>
+
+        </a>
+
+
+      {% endfor %}
+
+
+    {% else %}
+
+
+      <div class="empty-thoughts">
+
+        아직 작성된 Thoughts 기록이 없습니다.
+
+      </div>
+
+
+    {% endif %}
+
+
+  </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  © 2026 Sunghwan Log ·
+  Ordinary days, quietly collected.
+
+</footer>
+
+
+</body>
+
+</html>
