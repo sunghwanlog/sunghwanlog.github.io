@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -5,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{{ page.title }} | Sunghwan Log</title>
+  <title>Running | Sunghwan Log</title>
 
   <style>
 
@@ -72,32 +75,113 @@
 
 
     /* =========================
-       ARTICLE
+       RUNNING HEADER
     ========================= */
 
-    .article {
+    .running-header {
       max-width: 820px;
-      margin: 70px auto 0;
+      margin: 75px auto 0;
     }
 
-    .category {
-      font-size: 12px;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .article h1 {
-      margin: 14px 0;
+    .running-header h1 {
+      margin: 0 0 14px;
 
       font-family: Georgia, "Noto Serif KR", serif;
-      font-size: 46px;
-      line-height: 1.3;
+      font-size: 52px;
+      line-height: 1.2;
     }
 
-    .date {
-      color: #999;
-      font-size: 13px;
+    .running-intro {
+      max-width: 620px;
+      margin: 0;
+
+      color: #777;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       RUNNING LIST
+    ========================= */
+
+    .running-list {
+      max-width: 820px;
+      margin: 65px auto 0;
+    }
+
+    .running-post {
+      display: grid;
+      grid-template-columns: 95px 1fr 220px;
+      gap: 30px;
+
+      align-items: center;
+
+      padding: 34px 0;
+
+      border-top: 1px solid #eeeeee;
+    }
+
+    .running-post:last-child {
+      border-bottom: 1px solid #eeeeee;
+    }
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    .running-date {
+      align-self: start;
+      padding-top: 4px;
+    }
+
+    .running-date-main {
+      display: block;
+
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1.2;
+
+      color: #333;
+    }
+
+    .running-date-year {
+      display: block;
+      margin-top: 6px;
+
+      color: #aaa;
+      font-size: 10px;
+
+      letter-spacing: 0.8px;
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .running-content {
+      min-width: 0;
+    }
+
+    .running-content a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .running-content h2 {
+      margin: 0 0 13px;
+
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 23px;
+      line-height: 1.4;
+
+      font-weight: normal;
+    }
+
+    .running-content a:hover h2 {
+      color: #777;
     }
 
 
@@ -108,24 +192,20 @@
     .running-stats {
       display: flex;
       flex-wrap: wrap;
-      gap: 46px;
+      gap: 28px;
 
-      margin-top: 35px;
-      padding: 22px 0;
-
-      border-top: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee;
+      margin: 0 0 14px;
     }
 
     .running-stat {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 3px;
     }
 
     .stat-value {
       font-family: Georgia, serif;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 1.2;
 
       color: #333;
@@ -141,183 +221,90 @@
 
 
     /* =========================
-       GPS IMAGE
+       DESCRIPTION
     ========================= */
 
-    .gps-image {
-      max-width: 600px;
-      margin: 42px auto 0;
-    }
-
-    .gps-image img {
-      width: 100%;
-      height: auto;
-
-      display: block;
-
-      border-radius: 14px;
-    }
-
-
-    /* =========================
-       STORY
-    ========================= */
-
-    .story {
-      max-width: 680px;
-      margin: 55px auto 0;
-
-      color: #444;
-
-      font-size: 16px;
-      line-height: 2;
-    }
-
-    .story p {
-      margin: 0 0 28px;
-    }
-
-    .story h2 {
-      margin: 50px 0 20px;
-
-      font-family: Georgia, "Noto Serif KR", serif;
-      font-size: 25px;
-      line-height: 1.5;
-    }
-
-    .story h3 {
-      margin: 40px 0 18px;
-
-      font-family: Georgia, "Noto Serif KR", serif;
-      font-size: 20px;
-      line-height: 1.5;
-    }
-
-    .story blockquote {
-      margin: 45px 0;
-      padding-left: 22px;
-
-      border-left: 2px solid #dddddd;
+    .running-description {
+      max-width: 520px;
+      margin: 0;
 
       color: #777;
-
-      font-family: Georgia, "Noto Serif KR", serif;
-      font-size: 20px;
+      font-size: 14px;
       line-height: 1.8;
     }
 
 
     /* =========================
-       POST NAVIGATION
+       GPS PREVIEW
     ========================= */
 
-    .post-navigation {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1.25fr;
-      gap: 36px;
-
-      align-items: start;
-
-      margin-top: 75px;
-      padding-top: 30px;
-
-      border-top: 1px solid #eeeeee;
-    }
-
-    .post-navigation a {
+    .running-gps-link {
+      display: block;
       text-decoration: none;
-      color: inherit;
     }
 
-    .nav-side {
-      min-width: 0;
+    .running-gps {
+      width: 100%;
+      overflow: hidden;
+
+      border-radius: 10px;
+
+      background: #f6f6f6;
     }
 
-    .nav-label {
+    .running-gps img {
+      width: 100%;
+      height: 145px;
+
+      object-fit: cover;
+
       display: block;
-      margin-bottom: 9px;
 
-      color: #777;
+      transition:
+        opacity 0.2s,
+        transform 0.3s;
+    }
+
+    .running-gps-link:hover img {
+      opacity: 0.88;
+      transform: scale(1.02);
+    }
+
+
+    /* GPS 이미지가 없는 경우 */
+
+    .running-gps-empty {
+      width: 100%;
+      height: 145px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+
+      color: #bbb;
       font-size: 11px;
+      letter-spacing: 0.8px;
 
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .nav-title {
-      display: block;
-
-      color: #444;
-
-      font-family: Georgia, "Noto Serif KR", serif;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .nav-side a:hover .nav-title {
-      color: #777;
+      background: #fafafa;
     }
 
 
     /* =========================
-       RUNNING CATEGORY PREVIEW
+       EMPTY STATE
     ========================= */
 
-    .nav-running {
-      min-width: 0;
-    }
+    .empty-running {
+      padding: 50px 0;
 
-    .running-nav-heading {
-      display: inline-block;
-      margin-bottom: 12px;
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
 
-      color: #666;
-      text-decoration: none;
-
-      font-size: 12px;
-      line-height: 1.4;
-
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .running-nav-heading:hover {
-      color: #000;
-    }
-
-    .running-preview {
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-
-    .running-preview-item {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 10px;
-
-      align-items: baseline;
-
-      text-decoration: none;
-    }
-
-    .running-preview-date {
-      color: #aaa;
-
-      font-size: 10px;
-      line-height: 1.4;
-    }
-
-    .running-preview-title {
-      color: #666;
-
-      font-family: Georgia, "Noto Serif KR", serif;
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .running-preview-item:hover .running-preview-title {
-      color: #000;
+      color: #999;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
 
@@ -359,6 +346,16 @@
         margin-bottom: 8px;
       }
 
+      .running-post {
+        grid-template-columns: 80px 1fr 180px;
+        gap: 22px;
+      }
+
+      .running-gps img,
+      .running-gps-empty {
+        height: 120px;
+      }
+
     }
 
 
@@ -368,42 +365,55 @@
 
     @media (max-width: 650px) {
 
-      .article {
+      .running-header {
+        margin-top: 50px;
+      }
+
+      .running-header h1 {
+        font-size: 42px;
+      }
+
+      .running-list {
         margin-top: 45px;
       }
 
-      .article h1 {
-        font-size: 36px;
+      .running-post {
+        grid-template-columns: 58px 1fr;
+        gap: 18px;
+
+        padding: 26px 0;
       }
 
-      .running-stats {
-        gap: 26px;
+      .running-gps-link,
+      .running-gps-empty {
+        grid-column: 1 / -1;
+
+        margin-top: 8px;
       }
 
-      .stat-value {
+      .running-gps img,
+      .running-gps-empty {
+        height: auto;
+      }
+
+      .running-gps-empty {
+        min-height: 110px;
+      }
+
+      .running-content h2 {
         font-size: 20px;
       }
 
-      .gps-image img {
-        border-radius: 10px;
+      .running-stats {
+        gap: 18px;
       }
 
-      .story {
-        font-size: 15px;
+      .stat-value {
+        font-size: 16px;
       }
 
-      .post-navigation {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px 18px;
-      }
-
-      .nav-running {
-        grid-column: 1 / -1;
-
-        margin-top: 6px;
-        padding-top: 20px;
-
-        border-top: 1px solid #eeeeee;
+      .running-description {
+        font-size: 13px;
       }
 
     }
@@ -485,285 +495,208 @@
 
 <main class="container">
 
-  <article class="article">
 
+  <!-- Running 소개 -->
 
-    <!-- 카테고리 -->
-
-    <div class="category">
-      Running
-    </div>
-
-
-
-    <!-- 제목 -->
+  <section class="running-header">
 
     <h1>
-      {{ page.title }}
+      Running
     </h1>
 
+    <p class="running-intro">
+      Miles, routes, pace, and the days in between.
+    </p>
 
-
-    <!-- 날짜 -->
-
-    <div class="date">
-      {{ page.date | date: "%B %-d, %Y" }}
-    </div>
-
-
-
-    <!-- =========================
-         RUNNING STATS
-    ========================= -->
-
-    {% if page.distance or page.duration or page.pace %}
-
-      <div class="running-stats">
-
-
-        {% if page.distance and page.distance != "" %}
-
-          <div class="running-stat">
-
-            <span class="stat-value">
-              {{ page.distance }}
-            </span>
-
-            <span class="stat-label">
-              Distance
-            </span>
-
-          </div>
-
-        {% endif %}
+  </section>
 
 
 
-        {% if page.duration and page.duration != "" %}
+  <!-- =========================
+       Running 글 목록
+  ========================= -->
 
-          <div class="running-stat">
+  <section class="running-list">
 
-            <span class="stat-value">
-              {{ page.duration }}
-            </span>
-
-            <span class="stat-label">
-              Time
-            </span>
-
-          </div>
-
-        {% endif %}
-
-
-
-        {% if page.pace and page.pace != "" %}
-
-          <div class="running-stat">
-
-            <span class="stat-value">
-              {{ page.pace }}
-            </span>
-
-            <span class="stat-label">
-              Pace
-            </span>
-
-          </div>
-
-        {% endif %}
-
-
-      </div>
-
-    {% endif %}
-
-
-
-    <!-- =========================
-         GPS IMAGE
-    ========================= -->
-
-    {% if page.gps_image and page.gps_image != "" %}
-
-      <div class="gps-image">
-
-        <img
-          src="{{ page.gps_image | relative_url }}"
-          alt="{{ page.title }} GPS 기록"
-        >
-
-      </div>
-
-    {% endif %}
-
-
-
-    <!-- =========================
-         본문
-    ========================= -->
-
-    <section class="story">
-
-      {{ content }}
-
-    </section>
-
-
-
-    <!-- =========================
-         Running 이전/다음 글 찾기
-    ========================= -->
 
     {% assign running_posts = site.posts
       | where: "category", "running" %}
 
-    {% assign older_running = nil %}
-    {% assign newer_running = nil %}
+
+    {% if running_posts.size > 0 %}
 
 
-    {% for post in running_posts %}
+      {% for post in running_posts %}
 
-      {% if post.url == page.url %}
-
-        {% assign current_index = forloop.index0 %}
+        <article class="running-post">
 
 
-        <!-- 현재 글보다 오래된 Running -->
+          <!-- =========================
+               DATE
+          ========================= -->
 
-        {% unless forloop.last %}
+          <div class="running-date">
 
-          {% assign older_index = current_index | plus: 1 %}
-
-          {% assign older_running =
-            running_posts[older_index] %}
-
-        {% endunless %}
-
-
-        <!-- 현재 글보다 새로운 Running -->
-
-        {% unless forloop.first %}
-
-          {% assign newer_index = current_index | minus: 1 %}
-
-          {% assign newer_running =
-            running_posts[newer_index] %}
-
-        {% endunless %}
-
-
-      {% endif %}
-
-    {% endfor %}
-
-
-
-    <!-- =========================
-         PREVIOUS / NEXT / RUNNING
-    ========================= -->
-
-    <div class="post-navigation">
-
-
-      <!-- PREVIOUS : 더 최신 기록 -->
-
-      <div class="nav-side">
-
-        {% if newer_running %}
-
-          <a href="{{ newer_running.url | relative_url }}">
-
-            <span class="nav-label">
-              PREVIOUS
+            <span class="running-date-main">
+              {{ post.date | date: "%m.%d" }}
             </span>
 
-            <span class="nav-title">
-              {{ newer_running.title }}
+            <span class="running-date-year">
+              {{ post.date | date: "%Y" }}
             </span>
 
-          </a>
-
-        {% endif %}
-
-      </div>
+          </div>
 
 
 
-      <!-- NEXT : 더 오래된 기록 -->
+          <!-- =========================
+               CONTENT
+          ========================= -->
 
-      <div class="nav-side">
+          <div class="running-content">
 
-        {% if older_running %}
+            <a href="{{ post.url | relative_url }}">
 
-          <a href="{{ older_running.url | relative_url }}">
+              <h2>
+                {{ post.title }}
+              </h2>
 
-            <span class="nav-label">
-              NEXT
-            </span>
-
-            <span class="nav-title">
-              {{ older_running.title }}
-            </span>
-
-          </a>
-
-        {% endif %}
-
-      </div>
+            </a>
 
 
 
-      <!-- RUNNING -->
+            <!-- 거리 / 시간 / 평균 페이스 -->
 
-      <div class="nav-running">
+            {% if post.distance or post.duration or post.pace %}
 
-        <a
-          class="running-nav-heading"
-          href="{{ '/running.html' | relative_url }}"
-        >
-          RUNNING
-        </a>
+              <div class="running-stats">
 
 
-        <div class="running-preview">
+                {% if post.distance and post.distance != "" %}
 
-          {% assign preview_count = 0 %}
+                  <div class="running-stat">
 
-          {% for running_post in running_posts %}
+                    <span class="stat-value">
+                      {{ post.distance }}
+                    </span>
 
-            {% if running_post.url != page.url and preview_count < 3 %}
+                    <span class="stat-label">
+                      Distance
+                    </span>
 
-              <a
-                class="running-preview-item"
-                href="{{ running_post.url | relative_url }}"
-              >
+                  </div>
 
-                <span class="running-preview-date">
-                  {{ running_post.date | date: "%m.%d" }}
-                </span>
+                {% endif %}
 
-                <span class="running-preview-title">
-                  {{ running_post.title }}
-                </span>
 
-              </a>
 
-              {% assign preview_count = preview_count | plus: 1 %}
+                {% if post.duration and post.duration != "" %}
+
+                  <div class="running-stat">
+
+                    <span class="stat-value">
+                      {{ post.duration }}
+                    </span>
+
+                    <span class="stat-label">
+                      Time
+                    </span>
+
+                  </div>
+
+                {% endif %}
+
+
+
+                {% if post.pace and post.pace != "" %}
+
+                  <div class="running-stat">
+
+                    <span class="stat-value">
+                      {{ post.pace }}
+                    </span>
+
+                    <span class="stat-label">
+                      Pace
+                    </span>
+
+                  </div>
+
+                {% endif %}
+
+
+              </div>
 
             {% endif %}
 
-          {% endfor %}
 
-        </div>
+
+            <!-- 짧은 설명 -->
+
+            {% if post.description and post.description != "" %}
+
+              <p class="running-description">
+                {{ post.description }}
+              </p>
+
+            {% endif %}
+
+
+          </div>
+
+
+
+          <!-- =========================
+               GPS IMAGE
+          ========================= -->
+
+          {% if post.gps_image and post.gps_image != "" %}
+
+            <a
+              class="running-gps-link"
+              href="{{ post.url | relative_url }}"
+            >
+
+              <div class="running-gps">
+
+                <img
+                  src="{{ post.gps_image | relative_url }}"
+                  alt="{{ post.title }} GPS 기록"
+                >
+
+              </div>
+
+            </a>
+
+          {% else %}
+
+            <div class="running-gps-empty">
+              GPS RECORD
+            </div>
+
+          {% endif %}
+
+
+        </article>
+
+      {% endfor %}
+
+
+    {% else %}
+
+
+      <div class="empty-running">
+
+        아직 작성된 Running 기록이 없습니다.
 
       </div>
 
 
-    </div>
+    {% endif %}
 
 
-  </article>
+  </section>
+
 
 </main>
 
