@@ -137,7 +137,6 @@
       width: 100%;
       max-width: 820px;
       margin: 40px auto 0;
-
       display: flex;
       flex-direction: column;
       gap: 28px;
@@ -166,12 +165,9 @@
       justify-content: center;
       align-items: center;
       gap: 30px;
-
       margin-top: 16px;
-
       color: #888;
       font-size: 12px;
-
       flex-wrap: wrap;
     }
 
@@ -189,7 +185,6 @@
     .story {
       max-width: 680px;
       margin: 50px auto 0;
-
       font-size: 16px;
       line-height: 2;
       color: #444;
@@ -202,11 +197,8 @@
     .story blockquote {
       margin: 45px 0;
       padding-left: 22px;
-
       border-left: 2px solid #ddd;
-
       color: #777;
-
       font-family: Georgia, "Noto Serif KR", serif;
       font-size: 20px;
       line-height: 1.8;
@@ -214,14 +206,14 @@
 
 
     /* =========================
-       NEXT / PREVIOUS
+       POST NAVIGATION
     ========================= */
 
     .post-navigation {
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: 1fr 1fr 1.35fr;
+      gap: 36px;
       align-items: start;
-      gap: 30px;
 
       margin-top: 70px;
       padding-top: 30px;
@@ -231,49 +223,30 @@
 
     .post-navigation a {
       text-decoration: none;
-      color: #555;
-    }
-
-    .post-navigation a:hover {
-      color: #000;
+      color: inherit;
     }
 
 
-    /* 왼쪽 / 오른쪽 영역 */
+    /* =========================
+       NEXT / PREVIOUS
+    ========================= */
 
     .nav-side {
       min-width: 0;
-    }
-
-    /* NEXT는 왼쪽 */
-
-    .nav-next {
       text-align: left;
     }
 
-    /* PREVIOUS는 오른쪽 */
-
-    .nav-previous {
-      text-align: right;
-    }
-
-
-    /* NEXT / PREVIOUS 글자 */
-
     .nav-label {
       display: block;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
 
-      color: #999;
-      font-size: 11px;
+      color: #777;
+      font-size: 12px;
       line-height: 1.4;
 
-      letter-spacing: 0.8px;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
-
-
-    /* 게시글 제목 */
 
     .nav-title {
       display: block;
@@ -284,16 +257,12 @@
       line-height: 1.5;
 
       color: #444;
-
       overflow-wrap: break-word;
     }
 
-
-    /* 작은 대표사진 */
-
     .nav-thumbnail {
-      width: 150px;
-      height: 95px;
+      width: 100%;
+      aspect-ratio: 3 / 2;
 
       object-fit: cover;
       border-radius: 8px;
@@ -305,38 +274,63 @@
         transform 0.2s;
     }
 
-    /* NEXT 사진은 왼쪽 정렬 */
-
-    .nav-next .nav-thumbnail {
-      margin-right: auto;
-    }
-
-    /* PREVIOUS 사진은 오른쪽 정렬 */
-
-    .nav-previous .nav-thumbnail {
-      margin-left: auto;
-    }
-
     .nav-side a:hover .nav-thumbnail {
       opacity: 0.85;
       transform: translateY(-2px);
     }
 
 
-    /* 가운데 Photography */
+    /* =========================
+       PHOTOGRAPHY CATEGORY
+    ========================= */
 
-    .nav-center {
-      padding-top: 1px;
-      text-align: center;
+    .nav-photography {
+      min-width: 0;
     }
 
-    .nav-center a {
-      font-size: 13px;
-      color: #888;
+    .photography-link {
+      display: block;
     }
 
-    .nav-center a:hover {
+    .photography-label {
+      display: block;
+      margin-bottom: 12px;
+
+      color: #555;
+      font-size: 12px;
+      line-height: 1.4;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .photography-link:hover .photography-label {
       color: #000;
+    }
+
+    .category-preview {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .category-preview img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+
+      object-fit: cover;
+      border-radius: 6px;
+
+      display: block;
+
+      transition:
+        opacity 0.2s,
+        transform 0.2s;
+    }
+
+    .photography-link:hover .category-preview img {
+      opacity: 0.88;
+      transform: translateY(-1px);
     }
 
 
@@ -347,11 +341,8 @@
     footer {
       margin-top: 90px;
       padding: 35px 0;
-
       border-top: 1px solid #eeeeee;
-
       text-align: center;
-
       color: #999;
       font-size: 13px;
     }
@@ -413,21 +404,15 @@
         font-size: 15px;
       }
 
-
-      /* 모바일 이전/다음 */
-
       .post-navigation {
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 24px 18px;
       }
 
-      .nav-center {
+      .nav-photography {
         grid-column: 1 / -1;
-        grid-row: 2;
-
-        margin-top: 10px;
-        padding-top: 20px;
-
+        margin-top: 8px;
+        padding-top: 22px;
         border-top: 1px solid #eeeeee;
       }
 
@@ -435,9 +420,9 @@
         font-size: 14px;
       }
 
-      .nav-thumbnail {
-        width: 120px;
-        height: 78px;
+      .category-preview {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
       }
 
     }
@@ -563,9 +548,6 @@
 
     {% if page.images %}
 
-
-      <!-- 여러 장의 사진 -->
-
       <div class="photo-gallery">
 
         {% for photo in page.images %}
@@ -583,11 +565,7 @@
 
       </div>
 
-
     {% else %}
-
-
-      <!-- 한 장의 사진 -->
 
       <div class="main-photo">
 
@@ -597,7 +575,6 @@
         >
 
       </div>
-
 
     {% endif %}
 
@@ -609,7 +586,6 @@
 
     <div class="photo-info">
 
-
       {% if page.location and page.location != "" %}
 
         <span>
@@ -618,11 +594,9 @@
 
       {% endif %}
 
-
       <span>
         Photography
       </span>
-
 
       {% if page.shooting_date and page.shooting_date != "" %}
 
@@ -631,7 +605,6 @@
         </span>
 
       {% endif %}
-
 
     </div>
 
@@ -662,9 +635,7 @@
 
     {% for post in photography_posts %}
 
-
       {% if post.url == page.url %}
-
 
         {% assign current_index = forloop.index0 %}
 
@@ -692,22 +663,20 @@
 
         {% endunless %}
 
-
       {% endif %}
-
 
     {% endfor %}
 
 
 
     <!-- =========================
-         NEXT / 목록 / PREVIOUS
+         NEXT / PREVIOUS / PHOTOGRAPHY
     ========================= -->
 
     <div class="post-navigation">
 
 
-      <!-- NEXT : 더 최신 글 -->
+      <!-- PREVIOUS : 더 최신 글 -->
 
       <div class="nav-side nav-next">
 
@@ -716,13 +685,12 @@
           <a href="{{ next_photo.url | relative_url }}">
 
             <span class="nav-label">
-              ← NEXT
+              ← PREVIOUS
             </span>
 
             <span class="nav-title">
               {{ next_photo.title }}
             </span>
-
 
             {% if next_photo.image %}
 
@@ -734,7 +702,6 @@
 
             {% endif %}
 
-
           </a>
 
         {% endif %}
@@ -743,19 +710,7 @@
 
 
 
-      <!-- Photography 목록 -->
-
-      <div class="nav-center">
-
-        <a href="{{ '/photography.html' | relative_url }}">
-          Photography
-        </a>
-
-      </div>
-
-
-
-      <!-- PREVIOUS : 더 오래된 글 -->
+      <!-- NEXT : 더 오래된 글 -->
 
       <div class="nav-side nav-previous">
 
@@ -764,13 +719,12 @@
           <a href="{{ previous_photo.url | relative_url }}">
 
             <span class="nav-label">
-              PREVIOUS →
+              NEXT →
             </span>
 
             <span class="nav-title">
               {{ previous_photo.title }}
             </span>
-
 
             {% if previous_photo.image %}
 
@@ -782,10 +736,45 @@
 
             {% endif %}
 
-
           </a>
 
         {% endif %}
+
+      </div>
+
+
+
+      <!-- PHOTOGRAPHY CATEGORY -->
+
+      <div class="nav-photography">
+
+        <a
+          class="photography-link"
+          href="{{ '/photography.html' | relative_url }}"
+        >
+
+          <span class="photography-label">
+            PHOTOGRAPHY →
+          </span>
+
+          <div class="category-preview">
+
+            {% for photo_post in photography_posts limit:4 %}
+
+              {% if photo_post.image %}
+
+                <img
+                  src="{{ photo_post.image | relative_url }}"
+                  alt="{{ photo_post.title }}"
+                >
+
+              {% endif %}
+
+            {% endfor %}
+
+          </div>
+
+        </a>
 
       </div>
 
