@@ -1,0 +1,655 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reflections | Sunghwan Log</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      color: #222;
+      background: #ffffff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo a {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .menu a {
+      margin-left: 22px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      color: #000;
+    }
+
+    .menu a.active {
+      color: #000;
+      font-weight: 500;
+    }
+
+
+    /* =========================
+       REFLECTIONS HEADER
+    ========================= */
+
+    .reflections-header {
+      max-width: 820px;
+      margin: 75px auto 0;
+    }
+
+    .reflections-header h1 {
+      margin: 0 0 14px;
+
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 52px;
+      line-height: 1.2;
+    }
+
+    .reflections-intro {
+      max-width: 620px;
+      margin: 0;
+
+      color: #777;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       REFLECTIONS LIST
+    ========================= */
+
+    .reflections-list {
+      max-width: 820px;
+      margin: 65px auto 0;
+    }
+
+    .reflection-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .reflection-post {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr) 150px;
+      gap: 30px;
+      align-items: center;
+
+      padding: 32px 0;
+
+      border-top: 1px solid #eeeeee;
+
+      transition: transform 0.2s;
+    }
+
+    .reflection-link:last-child .reflection-post {
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .reflection-link:hover .reflection-post {
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    .reflection-date {
+      align-self: start;
+      padding-top: 2px;
+    }
+
+    .reflection-day {
+      display: block;
+
+      font-family: Georgia, serif;
+      font-size: 30px;
+      line-height: 1;
+
+      color: #333;
+    }
+
+    .reflection-month {
+      display: block;
+      margin-top: 7px;
+
+      color: #999;
+      font-size: 11px;
+
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .reflection-content {
+      min-width: 0;
+    }
+
+    .reflection-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 9px;
+
+      color: #999;
+      font-size: 10px;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .reflection-dot {
+      color: #ccc;
+    }
+
+    .reflection-content h2 {
+      margin: 0 0 9px;
+
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 23px;
+      line-height: 1.4;
+
+      font-weight: normal;
+
+      transition: color 0.2s;
+    }
+
+    .reflection-link:hover .reflection-content h2 {
+      color: #777;
+    }
+
+    .reflection-description {
+      max-width: 500px;
+      margin: 0;
+
+      color: #777;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       IMAGE
+    ========================= */
+
+    .reflection-image {
+      width: 100%;
+      overflow: hidden;
+
+      border-radius: 8px;
+
+      background: #f5f5f5;
+    }
+
+    .reflection-image img {
+      width: 100%;
+      height: 110px;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition:
+        opacity 0.2s,
+        transform 0.3s;
+    }
+
+    .reflection-link:hover .reflection-image img {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+
+    /* 이미지가 없는 경우 */
+
+    .reflection-image-empty {
+      width: 100%;
+      height: 110px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #eeeeee;
+      border-radius: 8px;
+
+      background: #fafafa;
+
+      color: #bbb;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+
+    /* =========================
+       EMPTY STATE
+    ========================= */
+
+    .empty-reflections {
+      padding: 50px 0;
+
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+
+      color: #999;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 90px;
+      padding: 35px 0;
+
+      border-top: 1px solid #eeeeee;
+
+      text-align: center;
+
+      color: #999;
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        margin-top: 18px;
+      }
+
+      .menu a {
+        margin-left: 0;
+        margin-right: 18px;
+        margin-bottom: 8px;
+      }
+
+      .reflection-post {
+        grid-template-columns: 75px minmax(0, 1fr) 130px;
+        gap: 22px;
+      }
+
+      .reflection-image img,
+      .reflection-image-empty {
+        height: 95px;
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      .reflections-header {
+        margin-top: 50px;
+      }
+
+      .reflections-header h1 {
+        font-size: 42px;
+      }
+
+      .reflections-list {
+        margin-top: 45px;
+      }
+
+      .reflection-post {
+        grid-template-columns: 58px 1fr;
+        gap: 18px;
+
+        padding: 26px 0;
+      }
+
+      .reflection-day {
+        font-size: 25px;
+      }
+
+      .reflection-content h2 {
+        font-size: 20px;
+      }
+
+      .reflection-description {
+        font-size: 13px;
+      }
+
+      .reflection-image,
+      .reflection-image-empty {
+        grid-column: 1 / -1;
+        margin-top: 6px;
+      }
+
+      .reflection-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .reflection-image-empty {
+        height: 120px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <div class="logo">
+
+        <a href="{{ '/' | relative_url }}">
+          Sunghwan Log
+        </a>
+
+      </div>
+
+
+      <div class="menu">
+
+        <a href="{{ '/' | relative_url }}">
+          Home
+        </a>
+
+        <a href="{{ '/daily.html' | relative_url }}">
+          Daily
+        </a>
+
+        <a href="{{ '/photography.html' | relative_url }}">
+          Photography
+        </a>
+
+        <a href="{{ '/running.html' | relative_url }}">
+          Running
+        </a>
+
+        <a
+          class="active"
+          href="{{ '/reflections.html' | relative_url }}"
+        >
+          Reflections
+        </a>
+
+        <a href="#">
+          Journey
+        </a>
+
+        <a href="#">
+          Moments
+        </a>
+
+        <a href="#">
+          About
+        </a>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+  <!-- Reflections 소개 -->
+
+  <section class="reflections-header">
+
+    <h1>
+      Reflections
+    </h1>
+
+    <p class="reflections-intro">
+      Things seen, read, heard, and remembered.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       Reflections 목록
+  ========================= -->
+
+  <section class="reflections-list">
+
+
+    {% assign reflection_posts = site.posts
+      | where: "category", "reflections" %}
+
+
+    {% if reflection_posts.size > 0 %}
+
+
+      {% for post in reflection_posts %}
+
+
+        <a
+          class="reflection-link"
+          href="{{ post.url | relative_url }}"
+        >
+
+          <article class="reflection-post">
+
+
+            <!-- 날짜 -->
+
+            <div class="reflection-date">
+
+              <span class="reflection-day">
+                {{ post.date | date: "%d" }}
+              </span>
+
+              <span class="reflection-month">
+                {{ post.date | date: "%b %Y" }}
+              </span>
+
+            </div>
+
+
+
+            <!-- 내용 -->
+
+            <div class="reflection-content">
+
+
+              <div class="reflection-meta">
+
+                {% if post.type and post.type != "" %}
+
+                  <span>
+                    {{ post.type }}
+                  </span>
+
+                {% endif %}
+
+
+                {% if post.creator and post.creator != "" %}
+
+                  {% if post.type and post.type != "" %}
+                    <span class="reflection-dot">·</span>
+                  {% endif %}
+
+                  <span>
+                    {{ post.creator }}
+                  </span>
+
+                {% endif %}
+
+              </div>
+
+
+              <h2>
+                {{ post.title }}
+              </h2>
+
+
+              {% if post.description and post.description != "" %}
+
+                <p class="reflection-description">
+                  {{ post.description }}
+                </p>
+
+              {% endif %}
+
+
+            </div>
+
+
+
+            <!-- 이미지 -->
+
+            {% if post.image and post.image != "" %}
+
+              <div class="reflection-image">
+
+                <img
+                  src="{{ post.image | relative_url }}"
+                  alt="{{ post.title }}"
+                >
+
+              </div>
+
+            {% else %}
+
+              <div class="reflection-image-empty">
+                REFLECTION
+              </div>
+
+            {% endif %}
+
+
+          </article>
+
+        </a>
+
+
+      {% endfor %}
+
+
+    {% else %}
+
+
+      <div class="empty-reflections">
+
+        아직 작성된 Reflections 기록이 없습니다.
+
+      </div>
+
+
+    {% endif %}
+
+
+  </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  © 2026 Sunghwan Log ·
+  Ordinary days, quietly collected.
+
+</footer>
+
+
+</body>
+
+</html>
