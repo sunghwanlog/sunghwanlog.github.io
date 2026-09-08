@@ -187,7 +187,7 @@
 
     .post-navigation {
       display: grid;
-      grid-template-columns: 1fr 1fr auto;
+      grid-template-columns: 1fr 1fr 1.25fr;
       gap: 36px;
 
       align-items: start;
@@ -238,25 +238,73 @@
     }
 
 
-    /* DAILY 목록 */
+   /* =========================
+   DAILY CATEGORY
+========================= */
 
-    .nav-daily {
-      min-width: 110px;
-      text-align: right;
-    }
+.nav-daily {
+  min-width: 0;
+}
 
-    .nav-daily a {
-      color: #666;
+.daily-nav-heading {
+  display: inline-block;
+  margin-bottom: 12px;
 
-      font-size: 12px;
+  color: #666;
+  text-decoration: none;
 
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+  font-size: 12px;
+  line-height: 1.4;
 
-    .nav-daily a:hover {
-      color: #000;
-    }
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.daily-nav-heading:hover {
+  color: #000;
+}
+
+
+/* 최근 Daily 목록 */
+
+.daily-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.daily-preview-item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 10px;
+
+  align-items: baseline;
+
+  text-decoration: none;
+}
+
+.daily-preview-date {
+  color: #aaa;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  letter-spacing: 0.3px;
+}
+
+.daily-preview-title {
+  color: #666;
+
+  font-family: Georgia, "Noto Serif KR", serif;
+  font-size: 12px;
+  line-height: 1.45;
+
+  transition: color 0.2s;
+}
+
+.daily-preview-item:hover .daily-preview-title {
+  color: #000;
+}
 
 
     /* =========================
@@ -576,20 +624,52 @@
       </div>
 
 
+<!-- =========================
+     DAILY CATEGORY
+========================= -->
 
-      <!-- DAILY 목록 -->
+<div class="nav-daily">
 
-      <div class="nav-daily">
+  <a
+    class="daily-nav-heading"
+    href="{{ '/daily.html' | relative_url }}"
+  >
+    DAILY
+  </a>
 
-        <a href="{{ '/daily.html' | relative_url }}">
-          DAILY
+
+  <div class="daily-preview">
+
+    {% assign preview_count = 0 %}
+
+    {% for daily_post in daily_posts %}
+
+      {% if daily_post.url != page.url and preview_count < 3 %}
+
+        <a
+          class="daily-preview-item"
+          href="{{ daily_post.url | relative_url }}"
+        >
+
+          <span class="daily-preview-date">
+            {{ daily_post.date | date: "%m.%d" }}
+          </span>
+
+          <span class="daily-preview-title">
+            {{ daily_post.title }}
+          </span>
+
         </a>
 
-      </div>
+        {% assign preview_count = preview_count | plus: 1 %}
 
+      {% endif %}
 
-    </div>
+    {% endfor %}
 
+  </div>
+
+</div>
 
   </article>
 
