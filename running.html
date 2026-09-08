@@ -160,30 +160,31 @@
        DATE
     ========================= */
 
-    .running-date {
-      align-self: start;
-      padding-top: 3px;
-    }
+.running-date {
+  align-self: start;
+  padding-top: 2px;
+}
 
-    .running-date-main {
-      display: block;
+.running-day {
+  display: block;
 
-      font-family: Georgia, serif;
-      font-size: 18px;
-      line-height: 1.3;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  line-height: 1;
 
-      color: #444;
-    }
+  color: #333;
+}
 
-    .running-date-year {
-      display: block;
-      margin-top: 5px;
+.running-month {
+  display: block;
+  margin-top: 7px;
 
-      color: #aaa;
-      font-size: 10px;
+  color: #999;
+  font-size: 11px;
 
-      letter-spacing: 0.8px;
-    }
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
 
 
     /* =========================
@@ -575,17 +576,17 @@
                  DATE
             ========================= -->
 
-            <div class="running-date">
+        <div class="running-date">
+          
+          <span class="running-day">
+            {{ post.date | date: "%d" }}
+          </span>
 
-              <span class="running-date-main">
-                {{ post.date | date: "%m.%d" }}
-              </span>
+          <span class="running-month">
+    {{ post.date | date: "%b %Y" }}
+  </span>
 
-              <span class="running-date-year">
-                {{ post.date | date: "%Y" }}
-              </span>
-
-            </div>
+</div>
 
 
 
