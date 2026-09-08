@@ -115,24 +115,53 @@
       margin: 65px auto 0;
     }
 
+
+    /* 전체 게시물 링크 */
+
+    .running-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    /* 게시물 카드 */
+
     .running-post {
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 34px;
+
+      grid-template-columns:
+        90px
+        minmax(0, 1fr)
+        220px;
+
+      gap: 30px;
+      align-items: center;
 
       padding: 32px 0;
 
       border-top: 1px solid #eeeeee;
+
+      transition:
+        transform 0.2s,
+        opacity 0.2s;
     }
 
-    .running-post:last-child {
+    .running-link:last-child .running-post {
       border-bottom: 1px solid #eeeeee;
     }
 
+    .running-link:hover .running-post {
+      transform: translateY(-2px);
+    }
 
-    /* 날짜 */
+
+    /* =========================
+       DATE
+    ========================= */
 
     .running-date {
+      align-self: start;
       padding-top: 3px;
     }
 
@@ -157,11 +186,12 @@
     }
 
 
-    /* 기록 */
+    /* =========================
+       CONTENT
+    ========================= */
 
-    .running-content a {
-      text-decoration: none;
-      color: inherit;
+    .running-content {
+      min-width: 0;
     }
 
     .running-content h2 {
@@ -172,14 +202,18 @@
       line-height: 1.4;
 
       font-weight: normal;
+
+      transition: color 0.2s;
     }
 
-    .running-content a:hover h2 {
+    .running-link:hover .running-content h2 {
       color: #777;
     }
 
 
-    /* 거리 / 시간 / 페이스 */
+    /* =========================
+       거리 / 시간 / 페이스
+    ========================= */
 
     .running-stats {
       display: flex;
@@ -210,7 +244,9 @@
     }
 
 
-    /* 설명 */
+    /* =========================
+       설명
+    ========================= */
 
     .running-description {
       margin: 0;
@@ -218,6 +254,60 @@
       color: #777;
       font-size: 14px;
       line-height: 1.8;
+    }
+
+
+    /* =========================
+       GPS PREVIEW
+    ========================= */
+
+    .running-gps {
+      width: 100%;
+
+      overflow: hidden;
+
+      border-radius: 10px;
+
+      background: #f5f5f5;
+    }
+
+    .running-gps img {
+      width: 100%;
+      height: 140px;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition:
+        opacity 0.2s,
+        transform 0.3s;
+    }
+
+    .running-link:hover .running-gps img {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+
+    /* GPS 이미지가 없는 경우 */
+
+    .running-gps-empty {
+      width: 100%;
+      height: 140px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+
+      background: #fafafa;
+
+      color: #bbb;
+      font-size: 10px;
+      letter-spacing: 1px;
     }
 
 
@@ -274,6 +364,21 @@
         margin-bottom: 8px;
       }
 
+
+      .running-post {
+        grid-template-columns:
+          75px
+          minmax(0, 1fr)
+          180px;
+
+        gap: 22px;
+      }
+
+      .running-gps img,
+      .running-gps-empty {
+        height: 120px;
+      }
+
     }
 
 
@@ -295,19 +400,40 @@
         margin-top: 45px;
       }
 
+
       .running-post {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: 58px 1fr;
+        gap: 18px;
 
         padding: 26px 0;
+      }
+
+
+      .running-content h2 {
+        font-size: 20px;
       }
 
       .running-stats {
         gap: 18px;
       }
 
-      .running-content h2 {
-        font-size: 20px;
+
+      /* GPS는 모바일에서 아래쪽 전체 너비 */
+
+      .running-gps,
+      .running-gps-empty {
+        grid-column: 1 / -1;
+
+        margin-top: 8px;
+      }
+
+      .running-gps img {
+        width: 100%;
+        height: auto;
+      }
+
+      .running-gps-empty {
+        height: 120px;
       }
 
     }
@@ -320,6 +446,10 @@
 <body>
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
   <div class="container">
@@ -327,10 +457,13 @@
     <nav>
 
       <div class="logo">
+
         <a href="{{ '/' | relative_url }}">
           Sunghwan Log
         </a>
+
       </div>
+
 
       <div class="menu">
 
@@ -378,8 +511,15 @@
 </header>
 
 
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <main class="container">
 
+
+  <!-- Running 소개 -->
 
   <section class="running-header">
 
@@ -394,7 +534,13 @@
   </section>
 
 
+
+  <!-- =========================
+       Running 목록
+  ========================= -->
+
   <section class="running-list">
+
 
     {% assign running_posts = site.posts
       | where: "category", "running" %}
@@ -402,85 +548,123 @@
 
     {% if running_posts.size > 0 %}
 
+
       {% for post in running_posts %}
 
-        <article class="running-post">
+
+        <!--
+          카드 전체가 개별 Running 글로 이동
+        -->
+
+        <a
+          class="running-link"
+          href="{{ post.url | relative_url }}"
+        >
 
 
-          <div class="running-date">
-
-            <span class="running-date-main">
-              {{ post.date | date: "%m.%d" }}
-            </span>
-
-            <span class="running-date-year">
-              {{ post.date | date: "%Y" }}
-            </span>
-
-          </div>
+          <article class="running-post">
 
 
-          <div class="running-content">
+            <!-- =========================
+                 DATE
+            ========================= -->
 
-            <a href="{{ post.url | relative_url }}">
+            <div class="running-date">
+
+              <span class="running-date-main">
+                {{ post.date | date: "%m.%d" }}
+              </span>
+
+              <span class="running-date-year">
+                {{ post.date | date: "%Y" }}
+              </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RUNNING CONTENT
+            ========================= -->
+
+            <div class="running-content">
+
 
               <h2>
                 {{ post.title }}
               </h2>
 
-            </a>
 
 
-            <div class="running-stats">
+              <!-- 거리 / 시간 / 페이스 -->
+
+              <div class="running-stats">
 
 
-              {% if post.distance and post.distance != "" %}
+                {% if post.distance and post.distance != "" %}
 
-                <div class="stat">
+                  <div class="stat">
 
-                  <span class="stat-value">
-                    {{ post.distance }}
-                  </span>
+                    <span class="stat-value">
+                      {{ post.distance }}
+                    </span>
 
-                  <span class="stat-label">
-                    Distance
-                  </span>
+                    <span class="stat-label">
+                      Distance
+                    </span>
 
-                </div>
+                  </div>
 
-              {% endif %}
-
-
-              {% if post.duration and post.duration != "" %}
-
-                <div class="stat">
-
-                  <span class="stat-value">
-                    {{ post.duration }}
-                  </span>
-
-                  <span class="stat-label">
-                    Time
-                  </span>
-
-                </div>
-
-              {% endif %}
+                {% endif %}
 
 
-              {% if post.pace and post.pace != "" %}
 
-                <div class="stat">
+                {% if post.duration and post.duration != "" %}
 
-                  <span class="stat-value">
-                    {{ post.pace }}
-                  </span>
+                  <div class="stat">
 
-                  <span class="stat-label">
-                    Pace
-                  </span>
+                    <span class="stat-value">
+                      {{ post.duration }}
+                    </span>
 
-                </div>
+                    <span class="stat-label">
+                      Time
+                    </span>
+
+                  </div>
+
+                {% endif %}
+
+
+
+                {% if post.pace and post.pace != "" %}
+
+                  <div class="stat">
+
+                    <span class="stat-value">
+                      {{ post.pace }}
+                    </span>
+
+                    <span class="stat-label">
+                      Pace
+                    </span>
+
+                  </div>
+
+                {% endif %}
+
+
+              </div>
+
+
+
+              <!-- 설명 -->
+
+              {% if post.description and post.description != "" %}
+
+                <p class="running-description">
+                  {{ post.description }}
+                </p>
 
               {% endif %}
 
@@ -488,36 +672,63 @@
             </div>
 
 
-            {% if post.description and post.description != "" %}
 
-              <p class="running-description">
-                {{ post.description }}
-              </p>
+            <!-- =========================
+                 GPS IMAGE
+            ========================= -->
+
+            {% if post.gps_image and post.gps_image != "" %}
+
+              <div class="running-gps">
+
+                <img
+                  src="{{ post.gps_image | relative_url }}"
+                  alt="{{ post.title }} GPS 기록"
+                >
+
+              </div>
+
+            {% else %}
+
+              <div class="running-gps-empty">
+                GPS RECORD
+              </div>
 
             {% endif %}
 
 
-          </div>
+          </article>
 
 
-        </article>
+        </a>
+
 
       {% endfor %}
 
 
     {% else %}
 
+
       <div class="empty-running">
+
         아직 작성된 Running 기록이 없습니다.
+
       </div>
 
+
     {% endif %}
+
 
   </section>
 
 
 </main>
 
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
