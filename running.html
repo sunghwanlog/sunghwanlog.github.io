@@ -5,10 +5,26 @@
 <html lang="ko">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Running | In Passing</title>
+
+
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/header.css' | relative_url }}"
+  >
+
 
   <style>
 
@@ -16,12 +32,19 @@
       box-sizing: border-box;
     }
 
+
     body {
       margin: 0;
-      font-family: Arial, "Noto Sans KR", sans-serif;
+
+      font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
       color: #222;
       background: #ffffff;
     }
+
 
     .container {
       width: 90%;
@@ -30,54 +53,6 @@
     }
 
 
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      padding: 28px 0;
-      border-bottom: 1px solid #eeeeee;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .logo a {
-      text-decoration: none;
-      color: #222;
-    }
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .menu a {
-      margin-left: 22px;
-      text-decoration: none;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .menu a:hover {
-      color: #000;
-    }
-
-    .menu a.active {
-      color: #000;
-      font-weight: 500;
-    }
-
 
     /* =========================
        RUNNING HEADER
@@ -85,25 +60,35 @@
 
     .running-header {
       max-width: 820px;
+
       margin: 75px auto 0;
     }
+
 
     .running-header h1 {
       margin: 0 0 14px;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 52px;
       line-height: 1.2;
     }
 
+
     .running-intro {
       max-width: 620px;
+
       margin: 0;
 
       color: #777;
+
       font-size: 15px;
       line-height: 1.8;
     }
+
 
 
     /* =========================
@@ -112,17 +97,21 @@
 
     .running-list {
       max-width: 820px;
+
       margin: 65px auto 0;
     }
+
 
 
     /* 전체 게시물 링크 */
 
     .running-link {
       display: block;
+
       text-decoration: none;
       color: inherit;
     }
+
 
 
     /* 게시물 카드 */
@@ -136,6 +125,7 @@
         190px;
 
       gap: 30px;
+
       align-items: center;
 
       padding: 32px 0;
@@ -147,13 +137,16 @@
         opacity 0.2s;
     }
 
+
     .running-link:last-child .running-post {
       border-bottom: 1px solid #eeeeee;
     }
 
+
     .running-link:hover .running-post {
       transform: translateY(-2px);
     }
+
 
 
     /* =========================
@@ -162,29 +155,38 @@
 
     .running-date {
       align-self: start;
+
       padding-top: 2px;
     }
+
 
     .running-day {
       display: block;
 
-      font-family: Georgia, serif;
+      font-family:
+        Georgia,
+        serif;
+
       font-size: 30px;
       line-height: 1;
 
       color: #333;
     }
 
+
     .running-month {
       display: block;
+
       margin-top: 7px;
 
       color: #999;
+
       font-size: 11px;
 
       letter-spacing: 0.8px;
       text-transform: uppercase;
     }
+
 
 
     /* =========================
@@ -195,10 +197,15 @@
       min-width: 0;
     }
 
+
     .running-content h2 {
       margin: 0 0 8px;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 23px;
       line-height: 1.4;
 
@@ -207,9 +214,11 @@
       transition: color 0.2s;
     }
 
+
     .running-link:hover .running-content h2 {
       color: #777;
     }
+
 
 
     /* =========================
@@ -219,30 +228,41 @@
     .running-stats {
       display: flex;
       flex-wrap: wrap;
+
       gap: 24px;
 
       margin: 14px 0 12px;
     }
 
+
     .stat {
       display: flex;
       flex-direction: column;
+
       gap: 3px;
     }
 
+
     .stat-value {
-      font-family: Georgia, serif;
+      font-family:
+        Georgia,
+        serif;
+
       font-size: 18px;
+
       color: #333;
     }
 
+
     .stat-label {
       color: #aaa;
+
       font-size: 9px;
 
       letter-spacing: 1px;
       text-transform: uppercase;
     }
+
 
 
     /* =========================
@@ -253,9 +273,11 @@
       margin: 0;
 
       color: #777;
+
       font-size: 14px;
       line-height: 1.8;
     }
+
 
 
     /* =========================
@@ -267,14 +289,17 @@
       height: 140px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       overflow: hidden;
 
       border-radius: 10px;
+
       background: #ffffff;
     }
+
 
     .running-gps img {
       max-width: 100%;
@@ -292,9 +317,11 @@
         transform 0.3s;
     }
 
+
     .running-link:hover .running-gps img {
       opacity: 0.9;
     }
+
 
 
     /* GPS 이미지가 없는 경우 */
@@ -304,6 +331,7 @@
       height: 140px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -313,9 +341,11 @@
       background: #fafafa;
 
       color: #bbb;
+
       font-size: 10px;
       letter-spacing: 1px;
     }
+
 
 
     /* =========================
@@ -329,8 +359,10 @@
       border-bottom: 1px solid #eeeeee;
 
       color: #999;
+
       font-size: 14px;
     }
+
 
 
     /* =========================
@@ -339,6 +371,7 @@
 
     footer {
       margin-top: 90px;
+
       padding: 35px 0;
 
       border-top: 1px solid #eeeeee;
@@ -346,8 +379,10 @@
       text-align: center;
 
       color: #999;
+
       font-size: 13px;
     }
+
 
 
     /* =========================
@@ -355,22 +390,6 @@
     ========================= */
 
     @media (max-width: 900px) {
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .menu {
-        margin-top: 18px;
-      }
-
-      .menu a {
-        margin-left: 0;
-        margin-right: 18px;
-        margin-bottom: 8px;
-      }
-
 
       .running-post {
         grid-template-columns:
@@ -381,12 +400,14 @@
         gap: 22px;
       }
 
+
       .running-gps img,
       .running-gps-empty {
         height: 120px;
       }
 
     }
+
 
 
     /* =========================
@@ -399,9 +420,11 @@
         margin-top: 50px;
       }
 
+
       .running-header h1 {
         font-size: 42px;
       }
+
 
       .running-list {
         margin-top: 45px;
@@ -409,7 +432,10 @@
 
 
       .running-post {
-        grid-template-columns: 58px 1fr;
+        grid-template-columns:
+          58px
+          1fr;
+
         gap: 18px;
 
         padding: 26px 0;
@@ -420,9 +446,11 @@
         font-size: 20px;
       }
 
+
       .running-stats {
         gap: 18px;
       }
+
 
 
       /* GPS는 모바일에서 아래쪽 전체 너비 */
@@ -434,10 +462,12 @@
         margin-top: 8px;
       }
 
+
       .running-gps img {
         width: 100%;
         height: auto;
       }
+
 
       .running-gps-empty {
         height: 120px;
@@ -448,6 +478,7 @@
   </style>
 
 </head>
+
 
 
 <body>
