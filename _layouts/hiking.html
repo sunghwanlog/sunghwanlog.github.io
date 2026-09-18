@@ -12,6 +12,21 @@
 
   <title>{{ page.title }} | In Passing</title>
 
+
+  <!-- =========================
+       COMMON CSS
+  ========================= -->
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/common.css' | relative_url }}"
+  >
+
+
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
   <link
     rel="stylesheet"
     href="{{ '/assets/css/header.css' | relative_url }}"
@@ -596,21 +611,11 @@
 <body>
 
 
-  <!-- =========================
-       COMMON CSS
-  ========================= -->
-  
-  <link
-    rel="stylesheet"
-    href="{{ '/assets/css/common.css' | relative_url }}"
-  >
-  
+<!-- =========================
+     COMMON HEADER
+========================= -->
 
-  <!-- =========================
-       COMMON HEADER
-  ========================= -->
-  
-  {% include header.html %}
+{% include header.html %}
 
 
 
