@@ -8,124 +8,211 @@
 
     <nav>
 
+      <!-- LOGO -->
+
       <div class="logo">
+
         <a href="{{ '/' | relative_url }}">
           In Passing
         </a>
+
       </div>
 
+
+
+      <!-- MAIN MENU -->
 
       <div class="menu">
 
 
+        <!-- HOME -->
+
         <div class="menu-item">
+
           <a
             href="{{ '/' | relative_url }}"
-            {% if page.url == "/" %}class="active"{% endif %}
+            {% if page.url == "/" %}
+              class="active"
+            {% endif %}
           >
             Home
           </a>
+
         </div>
 
 
+
+        <!-- ABOUT -->
+
         <div class="menu-item">
+
           <a
             href="{{ '/about.html' | relative_url }}"
-            {% if page.url == "/about.html" %}class="active"{% endif %}
+            {% if page.url == "/about.html" %}
+              class="active"
+            {% endif %}
           >
             About
           </a>
+
         </div>
 
 
+
+        <!-- PHOTOGRAPHY -->
+
         <div class="menu-item">
+
           <a
             href="{{ '/photography.html' | relative_url }}"
-            {% if page.url == "/photography.html" or page.category == "photography" %}class="active"{% endif %}
+            {% if page.url == "/photography.html"
+              or page.category == "photography"
+            %}
+              class="active"
+            {% endif %}
           >
             Photography
           </a>
+
         </div>
 
 
+
+        <!-- DAILY -->
+
         <div class="menu-item">
+
           <a
             href="{{ '/daily.html' | relative_url }}"
-            {% if page.url == "/daily.html" or page.category == "daily" %}class="active"{% endif %}
+            {% if page.url == "/daily.html"
+              or page.category == "daily"
+            %}
+              class="active"
+            {% endif %}
           >
             Daily
           </a>
+
         </div>
 
 
-        <!-- ACTIVITY -->
+
+        <!-- =========================
+             ACTIVITY DROPDOWN
+        ========================= -->
 
         <div class="menu-item activity-menu">
 
+
+          <!-- ACTIVITY -->
+
           <a
+            class="activity-link{% if page.url == '/running.html'
+              or page.url == '/hiking.html'
+              or page.category == 'running'
+              or page.category == 'hiking'
+            %} active{% endif %}"
             href="{{ '/running.html' | relative_url }}"
-            {% if page.url == "/running.html"
-              or page.url == "/hiking.html"
-              or page.category == "running"
-              or page.category == "hiking"
-            %}class="active"{% endif %}
           >
             Activity
           </a>
 
 
-          <div class="dropdown">
+
+          <!-- DROPDOWN -->
+
+          <div class="activity-dropdown">
+
+
+            <!-- RUNNING -->
 
             <a
               href="{{ '/running.html' | relative_url }}"
               {% if page.url == "/running.html"
                 or page.category == "running"
-              %}class="active"{% endif %}
+              %}
+                class="active"
+              {% endif %}
             >
               Running
             </a>
+
+
+
+            <!-- HIKING -->
 
             <a
               href="{{ '/hiking.html' | relative_url }}"
               {% if page.url == "/hiking.html"
                 or page.category == "hiking"
-              %}class="active"{% endif %}
+              %}
+                class="active"
+              {% endif %}
             >
               Hiking
             </a>
 
+
           </div>
+
 
         </div>
 
 
+
+        <!-- REFLECTIONS -->
+
         <div class="menu-item">
+
           <a
             href="{{ '/reflections.html' | relative_url }}"
-            {% if page.url == "/reflections.html" or page.category == "reflections" %}class="active"{% endif %}
+            {% if page.url == "/reflections.html"
+              or page.category == "reflections"
+            %}
+              class="active"
+            {% endif %}
           >
             Reflections
           </a>
+
         </div>
 
 
+
+        <!-- THOUGHTS -->
+
         <div class="menu-item">
+
           <a
             href="{{ '/thoughts.html' | relative_url }}"
-            {% if page.url == "/thoughts.html" or page.category == "thoughts" %}class="active"{% endif %}
+            {% if page.url == "/thoughts.html"
+              or page.category == "thoughts"
+            %}
+              class="active"
+            {% endif %}
           >
             Thoughts
           </a>
+
         </div>
 
 
+
+        <!-- MOMENTS -->
+
         <div class="menu-item">
+
           <a
             href="{{ '/moments.html' | relative_url }}"
-            {% if page.url == "/moments.html" or page.category == "moments" %}class="active"{% endif %}
+            {% if page.url == "/moments.html"
+              or page.category == "moments"
+            %}
+              class="active"
+            {% endif %}
           >
             Moments
           </a>
+
         </div>
 
 
