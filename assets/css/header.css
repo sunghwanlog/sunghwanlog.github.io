@@ -36,10 +36,29 @@ header .menu {
 }
 
 
-header .menu > a,
-header .menu-item > a {
+/* 일반 메뉴 */
+
+header .menu > a {
   margin-left: 22px;
 
+  color: #555;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+
+/* Activity 메뉴 전체에 간격 적용 */
+
+header .menu-item {
+  position: relative;
+
+  margin-left: 22px;
+}
+
+
+/* Activity 글자 */
+
+header .menu-item > a {
   color: #555;
   font-size: 14px;
   text-decoration: none;
@@ -61,11 +80,6 @@ header .menu a.active {
 /* =========================
    ACTIVITY DROPDOWN
 ========================= */
-
-header .menu-item {
-  position: relative;
-}
-
 
 header .dropdown {
   position: absolute;
@@ -104,6 +118,7 @@ header .dropdown a {
 
   text-align: center;
   text-decoration: none;
+
   white-space: nowrap;
 }
 
@@ -141,8 +156,14 @@ header .menu-item:focus-within .dropdown {
   }
 
 
-  header .menu > a,
-  header .menu-item > a {
+  header .menu > a {
+    margin-left: 0;
+    margin-right: 18px;
+    margin-bottom: 8px;
+  }
+
+
+  header .menu-item {
     margin-left: 0;
     margin-right: 18px;
     margin-bottom: 8px;
