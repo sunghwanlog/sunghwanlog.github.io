@@ -10,3 +10,20 @@
 * {
   box-sizing: border-box;
 }
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  margin: 0;
+
+  font-family:
+    Arial,
+    "Noto Sans KR",
+    sans-serif;
+
+  color: #222;
+  background: #ffffff;
+}
