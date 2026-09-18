@@ -300,70 +300,68 @@
 
 
 
-    /* =========================
-       HIKING IMAGE
-    ========================= */
+/* =========================
+   HIKING IMAGE
+========================= */
 
-    .hiking-image {
-      width: 100%;
-      height: 140px;
+.hiking-image {
+  width: 100%;
+  height: 140px;
 
-      display: flex;
+  display: flex;
 
-      align-items: center;
-      justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-      overflow: hidden;
+  overflow: hidden;
 
-      border-radius: 10px;
-
-      background: #ffffff;
-    }
+  background: #ffffff;
+}
 
 
-    .hiking-image img {
-      width: 100%;
-      height: 100%;
+.hiking-image img {
+  max-width: 100%;
+  max-height: 100%;
 
-      display: block;
+  width: auto;
+  height: auto;
 
-      object-fit: cover;
+  display: block;
 
-      border-radius: 10px;
+  object-fit: contain;
 
-      transition:
-        opacity 0.2s,
-        transform 0.3s;
-    }
-
-
-    .hiking-link:hover .hiking-image img {
-      opacity: 0.9;
-    }
+  transition:
+    opacity 0.2s,
+    transform 0.3s;
+}
 
 
+.hiking-link:hover .hiking-image img {
+  opacity: 0.9;
+}
 
-    /* 이미지가 없는 경우 */
 
-    .hiking-image-empty {
-      width: 100%;
-      height: 140px;
 
-      display: flex;
+/* 이미지가 없는 경우 */
 
-      align-items: center;
-      justify-content: center;
+.hiking-image-empty {
+  width: 100%;
+  height: 140px;
 
-      border: 1px solid #eeeeee;
-      border-radius: 10px;
+  display: flex;
 
-      background: #fafafa;
+  align-items: center;
+  justify-content: center;
 
-      color: #bbb;
+  border: 1px solid #eeeeee;
 
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
+  background: #fafafa;
+
+  color: #bbb;
+
+  font-size: 10px;
+  letter-spacing: 1px;
+}
 
 
 
@@ -475,27 +473,22 @@
       /* 모바일에서는 이미지가 아래 전체 너비 */
 
       .hiking-image,
-      .hiking-image-empty {
-        grid-column: 1 / -1;
+.hiking-image-empty {
+  grid-column: 1 / -1;
 
-        margin-top: 8px;
-      }
-
-
-      .hiking-image {
-        height: auto;
-
-        aspect-ratio: 16 / 9;
-      }
+  margin-top: 8px;
+}
 
 
-      .hiking-image img {
-        width: 100%;
-        height: 100%;
+.hiking-image img {
+  width: 100%;
+  height: auto;
+}
 
-        object-fit: cover;
-      }
 
+.hiking-image-empty {
+  height: 120px;
+}
 
       .hiking-image-empty {
         height: 120px;
