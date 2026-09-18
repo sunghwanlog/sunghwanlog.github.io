@@ -79,23 +79,27 @@ header .menu .menu-item > a {
 
   color: #777;
 
-/* 메뉴 글씨 크기와 굵기 */
+  /* 메뉴 글씨 크기와 굵기 */
   font-size: 15.2px;
   font-weight: 600;
   line-height: 1.4;
 
   text-decoration: none;
   white-space: nowrap;
-}
 
+  /* 커서를 올렸을 때 색상이 부드럽게 변하도록 설정 */
   transition: color 0.15s ease;
 }
 
+
+/* 커서를 올렸을 때 */
 
 header .menu .menu-item > a:hover {
   color: #222;
 }
 
+
+/* 현재 보고 있는 페이지 */
 
 header .menu .menu-item > a.active {
   color: #222;
@@ -184,21 +188,24 @@ header .menu .activity-menu .activity-dropdown > a {
   text-decoration: none;
 
   white-space: nowrap;
-}
 
+  /* 글씨 색과 배경색이 부드럽게 변하도록 설정 */
   transition:
     color 0.15s ease,
     background 0.15s ease;
 }
 
 
+/* Running / Hiking에 커서를 올렸을 때 */
 
 header .menu .activity-menu .activity-dropdown > a:hover {
   color: #222;
 
-  background: #fafafa;
+  background: #f5f5f5;
 }
 
+
+/* 현재 선택된 Activity 하위 메뉴 */
 
 header .menu .activity-menu .activity-dropdown > a.active {
   color: #222;
