@@ -118,7 +118,7 @@ header .menu-item:focus-within .dropdown {
   opacity: 1;
   visibility: visible;
 
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
 
 
