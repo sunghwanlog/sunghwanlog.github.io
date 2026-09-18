@@ -13,7 +13,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>About | In Passing </title>
+  <title>About | In Passing</title>
 
 
   <style>
@@ -82,7 +82,7 @@
 
 
     .menu a {
-      margin-left: 22px;                
+      margin-left: 22px;
 
       text-decoration: none;
 
@@ -126,15 +126,15 @@
 
 
     .about-label {
-      margin-top: 18px;            /* Spacing: In Passing and A PERSONAL */
+      margin-top: 18px;
       margin-bottom: 0;
-      
+
       color: #999;
-      
+
       font-size: 18px;
-      
+
       letter-spacing: 1.3px;
-      
+
       text-transform: uppercase;
     }
 
@@ -210,6 +210,7 @@
 
       text-align: center;
     }
+
 
     .about-tagline {
       margin: 0;
@@ -494,72 +495,10 @@
 
 
 <!-- =========================
-     HEADER
+     COMMON HEADER
 ========================= -->
 
-<header>
-
-  <div class="container">
-
-    <nav>
-
-
-      <div class="logo">
-
-        <a href="{{ '/' | relative_url }}">
-          Sunghwan Log
-        </a>
-
-      </div>
-
-
-
-      <div class="menu">
-
-        <a href="{{ '/' | relative_url }}">
-          Home
-        </a>
-
-        <a href="{{ '/photography.html' | relative_url }}">
-          Photography
-        </a>
-
-        <a href="{{ '/daily.html' | relative_url }}">
-          Daily
-        </a>
-
-        <a href="{{ '/running.html' | relative_url }}">
-          Running
-        </a>
-
-        <a href="{{ '/reflections.html' | relative_url }}">
-          Reflections
-        </a>
-
-        <a href="{{ '/thoughts.html' | relative_url }}">
-          Thoughts
-        </a>
-
-        <a href="{{ '/moments.html' | relative_url }}">
-          Moments
-        </a>
-
-        <a
-          class="active"
-          href="{{ '/about.html' | relative_url }}"
-        >
-          About
-        </a>
-
-      </div>
-
-
-    </nav>
-
-  </div>
-
-</header>
-
+{% include header.html %}
 
 
 <!-- =========================
@@ -591,9 +530,6 @@
 
     <!-- =========================
          PROFILE IMAGE
-
-         아래 이미지 경로를
-         원하는 사진으로 변경하세요.
     ========================= -->
 
     <div class="profile-image">
@@ -613,7 +549,7 @@
 
     <div class="about-intro">
 
-      <p class="about-tagline">   
+      <p class="about-tagline">
         Passing time, fleeting moments, quietly kept.
       </p>
 
@@ -622,16 +558,16 @@
         <p>
           흐르는 시간과 스치는 순간들 속
         </p>
-        
+
         <p>
           잊힐 수 있는 이야기들을 기억하고 싶습니다.
         </p>
 
-  </div>
-
-</div>
+      </div>
 
     </div>
+
+
 
     <hr class="divider">
 
