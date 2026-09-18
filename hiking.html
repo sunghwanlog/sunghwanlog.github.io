@@ -15,6 +15,11 @@
 
   <title>Hiking | In Passing</title>
 
+
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
   <link
     rel="stylesheet"
     href="{{ '/assets/css/header.css' | relative_url }}"
@@ -49,48 +54,43 @@
 
 
 
-/* =========================
-   HIKING HEADER
-========================= */
+    /* =========================
+       HIKING HEADER
+    ========================= */
 
-.page-header {
-  max-width: 900px;
-  margin: 75px auto 0;
-}
+    .hiking-header {
+      max-width: 820px;
 
-
-.page-title {
-  margin: 0;
-
-  font-family:
-    Georgia,
-    "Noto Serif KR",
-    serif;
-
-  font-size: 54px;
-  line-height: 1.2;
-
-  font-weight: bold;
-
-  color: #333;
-}
+      margin: 75px auto 0;
+    }
 
 
-.page-description {
-  max-width: 600px;
+    .hiking-header h1 {
+      margin: 0 0 14px;
 
-  margin-top: 18px;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
 
-  color: #aaa;
+      font-size: 52px;
+      line-height: 1.2;
 
-  font-family:
-    Arial,
-    "Noto Sans KR",
-    sans-serif;
+      font-weight: bold;
+    }
 
-  font-size: 14px;
-  line-height: 1.7;
-}
+
+    .hiking-intro {
+      max-width: 620px;
+
+      margin: 0;
+
+      color: #777;
+
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
 
 
     /* =========================
@@ -98,11 +98,14 @@
     ========================= */
 
     .hiking-list {
-      max-width: 900px;
+      max-width: 820px;
 
       margin: 65px auto 0;
     }
 
+
+
+    /* 전체 게시물 링크 */
 
     .hiking-link {
       display: block;
@@ -111,6 +114,9 @@
       text-decoration: none;
     }
 
+
+
+    /* 게시물 카드 */
 
     .hiking-post {
       display: grid;
@@ -127,11 +133,20 @@
       padding: 32px 0;
 
       border-top: 1px solid #eeeeee;
+
+      transition:
+        transform 0.2s,
+        opacity 0.2s;
     }
 
 
     .hiking-link:last-child .hiking-post {
       border-bottom: 1px solid #eeeeee;
+    }
+
+
+    .hiking-link:hover .hiking-post {
+      transform: translateY(-2px);
     }
 
 
@@ -141,21 +156,20 @@
     ========================= */
 
     .hiking-date {
-      display: flex;
-      flex-direction: column;
-
       align-self: start;
 
-      padding-top: 3px;
+      padding-top: 2px;
     }
 
 
     .hiking-day {
+      display: block;
+
       font-family:
         Georgia,
         serif;
 
-      font-size: 35px;
+      font-size: 30px;
       line-height: 1;
 
       color: #333;
@@ -163,13 +177,15 @@
 
 
     .hiking-month {
+      display: block;
+
       margin-top: 7px;
 
-      color: #aaa;
+      color: #999;
 
-      font-size: 9px;
-      letter-spacing: 1.2px;
+      font-size: 11px;
 
+      letter-spacing: 0.8px;
       text-transform: uppercase;
     }
 
@@ -184,90 +200,124 @@
     }
 
 
+
+    /* 산행 장소 */
+
     .hiking-location {
-      margin-bottom: 7px;
+      margin: 0 0 7px;
 
       color: #999;
 
       font-size: 9px;
-      letter-spacing: 1.1px;
 
+      letter-spacing: 1.1px;
       text-transform: uppercase;
     }
 
 
+
+    /* 게시물 제목 */
+
     .hiking-title {
-      margin: 0;
+      margin: 0 0 8px;
 
       font-family:
         Georgia,
         "Noto Serif KR",
         serif;
 
-      font-size: 24px;
+      font-size: 23px;
       line-height: 1.4;
 
       font-weight: normal;
+
+      transition: color 0.2s;
     }
 
 
-    .hiking-stats {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 8px 18px;
-
-      margin-top: 12px;
-
+    .hiking-link:hover .hiking-title {
       color: #777;
-
-      font-size: 11px;
-    }
-
-
-    .hiking-stat {
-      white-space: nowrap;
-    }
-
-
-    .hiking-stat-label {
-      margin-right: 5px;
-
-      color: #aaa;
-
-      font-size: 8px;
-
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-    }
-
-
-    .hiking-description {
-      max-width: 470px;
-
-      margin-top: 12px;
-
-      color: #777;
-
-      font-size: 13px;
-      line-height: 1.7;
     }
 
 
 
     /* =========================
-       IMAGE
+       거리 / 시간 / 상승고도
+    ========================= */
+
+    .hiking-stats {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 24px;
+
+      margin: 14px 0 12px;
+    }
+
+
+    .hiking-stat {
+      display: flex;
+      flex-direction: column;
+
+      gap: 3px;
+    }
+
+
+    .hiking-stat-value {
+      font-family:
+        Georgia,
+        serif;
+
+      font-size: 18px;
+
+      color: #333;
+    }
+
+
+    .hiking-stat-label {
+      color: #aaa;
+
+      font-size: 9px;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+
+
+    /* =========================
+       DESCRIPTION
+    ========================= */
+
+    .hiking-description {
+      margin: 0;
+
+      color: #777;
+
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+
+    /* =========================
+       HIKING IMAGE
     ========================= */
 
     .hiking-image {
       width: 100%;
-      height: 135px;
+      height: 140px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
 
       overflow: hidden;
 
-      border-radius: 9px;
+      border-radius: 10px;
 
-      background: #f5f5f5;
+      background: #ffffff;
     }
 
 
@@ -279,7 +329,11 @@
 
       object-fit: cover;
 
-      transition: opacity 0.2s ease;
+      border-radius: 10px;
+
+      transition:
+        opacity 0.2s,
+        transform 0.3s;
     }
 
 
@@ -288,45 +342,44 @@
     }
 
 
+
+    /* 이미지가 없는 경우 */
+
     .hiking-image-empty {
       width: 100%;
-      height: 100%;
+      height: 140px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+
+      background: #fafafa;
+
       color: #bbb;
 
-      font-family: Georgia, serif;
       font-size: 10px;
       letter-spacing: 1px;
-
-      background: #f7f7f7;
     }
 
 
 
     /* =========================
-       EMPTY ARCHIVE
+       EMPTY
     ========================= */
 
-    .empty-message {
-      padding: 45px 0;
+    .empty-hiking {
+      padding: 50px 0;
 
       border-top: 1px solid #eeeeee;
       border-bottom: 1px solid #eeeeee;
 
       color: #999;
 
-      font-family:
-        Georgia,
-        "Noto Serif KR",
-        serif;
-
       font-size: 14px;
-
-      text-align: center;
     }
 
 
@@ -345,6 +398,7 @@
       text-align: center;
 
       color: #999;
+
       font-size: 13px;
     }
 
@@ -360,13 +414,14 @@
         grid-template-columns:
           75px
           minmax(0, 1fr)
-          160px;
+          180px;
 
         gap: 22px;
       }
 
 
-      .hiking-image {
+      .hiking-image,
+      .hiking-image-empty {
         height: 120px;
       }
 
@@ -380,13 +435,13 @@
 
     @media (max-width: 650px) {
 
-      .page-header {
+      .hiking-header {
         margin-top: 50px;
       }
 
 
-      .page-title {
-        font-size: 38px;
+      .hiking-header h1 {
+        font-size: 42px;
       }
 
 
@@ -397,37 +452,53 @@
 
       .hiking-post {
         grid-template-columns:
-          65px
-          minmax(0, 1fr);
+          58px
+          1fr;
 
-        gap: 20px;
+        gap: 18px;
 
         padding: 26px 0;
       }
 
 
-      .hiking-day {
-        font-size: 30px;
-      }
-
-
       .hiking-title {
-        font-size: 21px;
-      }
-
-
-      .hiking-image {
-        grid-column: 2;
-
-        height: auto;
-        aspect-ratio: 16 / 9;
-
-        margin-top: 4px;
+        font-size: 20px;
       }
 
 
       .hiking-stats {
-        gap: 7px 13px;
+        gap: 18px;
+      }
+
+
+
+      /* 모바일에서는 이미지가 아래 전체 너비 */
+
+      .hiking-image,
+      .hiking-image-empty {
+        grid-column: 1 / -1;
+
+        margin-top: 8px;
+      }
+
+
+      .hiking-image {
+        height: auto;
+
+        aspect-ratio: 16 / 9;
+      }
+
+
+      .hiking-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+      }
+
+
+      .hiking-image-empty {
+        height: 120px;
       }
 
     }
@@ -450,28 +521,30 @@
 
 
 <!-- =========================
-     PAGE HEADER
+     MAIN
 ========================= -->
 
 <main class="container">
 
 
-  <section class="page-header">
+  <!-- Hiking 소개 -->
 
-    <h1 class="page-title">
+  <section class="hiking-header">
+
+    <h1>
       Hiking
     </h1>
 
-    <div class="page-description">
+    <p class="hiking-intro">
       Trails, mountains, and days spent walking.
-    </div>
+    </p>
 
   </section>
 
 
 
   <!-- =========================
-       HIKING POSTS
+       HIKING LIST
   ========================= -->
 
   <section class="hiking-list">
@@ -487,15 +560,21 @@
       {% for post in hiking_posts %}
 
 
+        <!-- 카드 전체가 개별 Hiking 글로 이동 -->
+
         <a
           class="hiking-link"
           href="{{ post.url | relative_url }}"
         >
 
+
           <article class="hiking-post">
 
 
-            <!-- DATE -->
+
+            <!-- =========================
+                 DATE
+            ========================= -->
 
             <div class="hiking-date">
 
@@ -511,12 +590,18 @@
 
 
 
-            <!-- CONTENT -->
+            <!-- =========================
+                 HIKING CONTENT
+            ========================= -->
 
             <div class="hiking-content">
 
 
-              {% if post.location and post.location != "" %}
+
+              <!-- LOCATION -->
+
+              {% if post.location
+                and post.location != "" %}
 
                 <div class="hiking-location">
                   {{ post.location }}
@@ -525,76 +610,91 @@
               {% endif %}
 
 
+
+              <!-- TITLE -->
+
               <h2 class="hiking-title">
                 {{ post.title }}
               </h2>
 
 
 
-              {% if post.distance
-                or post.duration
-                or post.elevation %}
+              <!-- =========================
+                   거리 / 시간 / 상승고도
+              ========================= -->
 
-                <div class="hiking-stats">
+              <div class="hiking-stats">
 
 
-                  {% if post.distance %}
 
-                    <span class="hiking-stat">
+                {% if post.distance
+                  and post.distance != "" %}
 
-                      <span class="hiking-stat-label">
-                        Distance
-                      </span>
+                  <div class="hiking-stat">
 
+                    <span class="hiking-stat-value">
                       {{ post.distance }}
-
                     </span>
 
-                  {% endif %}
+                    <span class="hiking-stat-label">
+                      Distance
+                    </span>
+
+                  </div>
+
+                {% endif %}
 
 
-                  {% if post.duration %}
 
-                    <span class="hiking-stat">
+                {% if post.duration
+                  and post.duration != "" %}
 
-                      <span class="hiking-stat-label">
-                        Time
-                      </span>
+                  <div class="hiking-stat">
 
+                    <span class="hiking-stat-value">
                       {{ post.duration }}
-
                     </span>
 
-                  {% endif %}
+                    <span class="hiking-stat-label">
+                      Time
+                    </span>
+
+                  </div>
+
+                {% endif %}
 
 
-                  {% if post.elevation %}
 
-                    <span class="hiking-stat">
+                {% if post.elevation
+                  and post.elevation != "" %}
 
-                      <span class="hiking-stat-label">
-                        Elevation
-                      </span>
+                  <div class="hiking-stat">
 
+                    <span class="hiking-stat-value">
                       {{ post.elevation }}
-
                     </span>
 
-                  {% endif %}
+                    <span class="hiking-stat-label">
+                      Elevation
+                    </span>
+
+                  </div>
+
+                {% endif %}
 
 
-                </div>
-
-              {% endif %}
+              </div>
 
 
+
+              <!-- DESCRIPTION -->
 
               {% if post.description
                 and post.description != "" %}
 
-                <div class="hiking-description">
+                <p class="hiking-description">
                   {{ post.description }}
-                </div>
+                </p>
 
               {% endif %}
 
@@ -603,29 +703,36 @@
 
 
 
-            <!-- IMAGE -->
+            <!-- =========================
+                 HIKING IMAGE
+            ========================= -->
 
-            <div class="hiking-image">
+            {% if post.image
+              and post.image != "" %}
 
-              {% if post.image and post.image != "" %}
+              <div class="hiking-image">
 
                 <img
                   src="{{ post.image | relative_url }}"
                   alt="{{ post.title }}"
                 >
 
-              {% else %}
+              </div>
 
-                <div class="hiking-image-empty">
-                  HIKING
-                </div>
 
-              {% endif %}
+            {% else %}
 
-            </div>
+
+              <div class="hiking-image-empty">
+                HIKING
+              </div>
+
+
+            {% endif %}
 
 
           </article>
+
 
         </a>
 
@@ -633,11 +740,14 @@
       {% endfor %}
 
 
+
     {% else %}
 
 
-      <div class="empty-message">
-        No hiking records yet.
+      <div class="empty-hiking">
+
+        아직 작성된 Hiking 기록이 없습니다.
+
       </div>
 
 
