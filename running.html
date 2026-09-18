@@ -75,6 +75,8 @@
 
       font-size: 52px;
       line-height: 1.2;
+
+      font-weight: bold;
     }
 
 
@@ -108,8 +110,8 @@
     .running-link {
       display: block;
 
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
 
@@ -198,7 +200,25 @@
     }
 
 
-    .running-content h2 {
+
+    /* 위치 */
+
+    .running-location {
+      margin: 0 0 7px;
+
+      color: #999;
+
+      font-size: 9px;
+
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+
+
+    /* 게시물 제목 */
+
+    .running-title {
       margin: 0 0 8px;
 
       font-family:
@@ -215,7 +235,7 @@
     }
 
 
-    .running-link:hover .running-content h2 {
+    .running-link:hover .running-title {
       color: #777;
     }
 
@@ -235,7 +255,7 @@
     }
 
 
-    .stat {
+    .running-stat {
       display: flex;
       flex-direction: column;
 
@@ -243,7 +263,7 @@
     }
 
 
-    .stat-value {
+    .running-stat-value {
       font-family:
         Georgia,
         serif;
@@ -254,7 +274,7 @@
     }
 
 
-    .stat-label {
+    .running-stat-label {
       color: #aaa;
 
       font-size: 9px;
@@ -266,7 +286,7 @@
 
 
     /* =========================
-       설명
+       DESCRIPTION
     ========================= */
 
     .running-description {
@@ -401,7 +421,7 @@
       }
 
 
-      .running-gps img,
+      .running-gps,
       .running-gps-empty {
         height: 120px;
       }
@@ -442,7 +462,7 @@
       }
 
 
-      .running-content h2 {
+      .running-title {
         font-size: 20px;
       }
 
@@ -453,7 +473,7 @@
 
 
 
-      /* GPS는 모바일에서 아래쪽 전체 너비 */
+      /* GPS는 모바일에서 아래 전체 너비 */
 
       .running-gps,
       .running-gps-empty {
@@ -516,7 +536,7 @@
 
 
   <!-- =========================
-       Running 목록
+       RUNNING LIST
   ========================= -->
 
   <section class="running-list">
@@ -541,6 +561,7 @@
 
 
           <article class="running-post">
+
 
 
             <!-- =========================
@@ -568,26 +589,46 @@
             <div class="running-content">
 
 
-              <h2>
+
+              <!-- LOCATION -->
+
+              {% if post.location
+                and post.location != "" %}
+
+                <div class="running-location">
+                  {{ post.location }}
+                </div>
+
+              {% endif %}
+
+
+
+              <!-- TITLE -->
+
+              <h2 class="running-title">
                 {{ post.title }}
               </h2>
 
 
 
-              <!-- 거리 / 시간 / 페이스 -->
+              <!-- =========================
+                   거리 / 시간 / 페이스
+              ========================= -->
 
               <div class="running-stats">
 
 
-                {% if post.distance and post.distance != "" %}
 
-                  <div class="stat">
+                {% if post.distance
+                  and post.distance != "" %}
 
-                    <span class="stat-value">
+                  <div class="running-stat">
+
+                    <span class="running-stat-value">
                       {{ post.distance }}
                     </span>
 
-                    <span class="stat-label">
+                    <span class="running-stat-label">
                       Distance
                     </span>
 
@@ -597,15 +638,16 @@
 
 
 
-                {% if post.duration and post.duration != "" %}
+                {% if post.duration
+                  and post.duration != "" %}
 
-                  <div class="stat">
+                  <div class="running-stat">
 
-                    <span class="stat-value">
+                    <span class="running-stat-value">
                       {{ post.duration }}
                     </span>
 
-                    <span class="stat-label">
+                    <span class="running-stat-label">
                       Time
                     </span>
 
@@ -615,15 +657,16 @@
 
 
 
-                {% if post.pace and post.pace != "" %}
+                {% if post.pace
+                  and post.pace != "" %}
 
-                  <div class="stat">
+                  <div class="running-stat">
 
-                    <span class="stat-value">
+                    <span class="running-stat-value">
                       {{ post.pace }}
                     </span>
 
-                    <span class="stat-label">
+                    <span class="running-stat-label">
                       Pace
                     </span>
 
@@ -636,9 +679,10 @@
 
 
 
-              <!-- 설명 -->
+              <!-- DESCRIPTION -->
 
-              {% if post.description and post.description != "" %}
+              {% if post.description
+                and post.description != "" %}
 
                 <p class="running-description">
                   {{ post.description }}
@@ -655,7 +699,8 @@
                  GPS IMAGE
             ========================= -->
 
-            {% if post.gps_image and post.gps_image != "" %}
+            {% if post.gps_image
+              and post.gps_image != "" %}
 
               <div class="running-gps">
 
@@ -666,11 +711,14 @@
 
               </div>
 
+
             {% else %}
+
 
               <div class="running-gps-empty">
                 GPS RECORD
               </div>
+
 
             {% endif %}
 
@@ -682,6 +730,7 @@
 
 
       {% endfor %}
+
 
 
     {% else %}
