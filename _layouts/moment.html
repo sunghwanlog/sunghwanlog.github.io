@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>{{ page.title }} | Sunghwan Log</title>
+  <title>{{ page.title }} | In Passing</title>
 
 
   <style>
@@ -205,30 +205,30 @@
     ========================= */
 
     .story {
-  width: 100%;
-  max-width: 500px;
+      width: 100%;
+      max-width: 500px;
 
-  margin: 55px auto 0;
+      margin: 55px auto 0;
 
-  color: #444;
+      color: #444;
 
-  font-size: 16px;
-  line-height: 2.05;
+      font-size: 16px;
+      line-height: 2.05;
 
-  text-align: center;
-}
+      text-align: center;
+    }
 
 
-.story p {
-  width: 100%;
+    .story p {
+      width: 100%;
 
-  margin:
-    0
-    auto
-    30px;
+      margin:
+        0
+        auto
+        30px;
 
-  text-align: center;
-}
+      text-align: center;
+    }
 
 
     .story h2 {
@@ -660,69 +660,10 @@
 
 
 <!-- =========================
-     HEADER
+     COMMON HEADER
 ========================= -->
 
-<header>
-
-  <div class="container">
-
-    <nav>
-
-
-      <div class="logo">
-
-        <a href="{{ '/' | relative_url }}">
-          Sunghwan Log
-        </a>
-
-      </div>
-
-
-
-      <div class="menu">
-
-        <a href="{{ '/' | relative_url }}">
-          Home
-        </a>
-
-        <a href="{{ '/photography.html' | relative_url }}">
-          Photography
-        </a>
-
-        <a href="{{ '/daily.html' | relative_url }}">
-          Daily
-        </a>
-
-        <a href="{{ '/running.html' | relative_url }}">
-          Running
-        </a>
-
-        <a href="{{ '/reflections.html' | relative_url }}">
-          Reflections
-        </a>
-
-        <a href="{{ '/thoughts.html' | relative_url }}">
-          Thoughts
-        </a>
-
-        <a
-          class="active"
-          href="{{ '/moments.html' | relative_url }}"
-        >
-          Moments
-        </a>
-
-        <a href="{{ '/about.html' | relative_url }}">About</a>
-        
-      </div>
-
-
-    </nav>
-
-  </div>
-
-</header>
+{% include header.html %}
 
 
 
@@ -1031,8 +972,8 @@
 
 <footer>
 
-  © 2026 Sunghwan Log ·
-  Ordinary days, quietly collected.
+  © 2026 In Passing ·
+  A personal archive by Sunghwan.
 
 </footer>
 
