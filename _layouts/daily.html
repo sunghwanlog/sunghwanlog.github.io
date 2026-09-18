@@ -2,10 +2,26 @@
 <html lang="ko">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>{{ page.title }} | In Passing</title>
+
+
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/header.css' | relative_url }}"
+  >
+
 
   <style>
 
@@ -13,67 +29,27 @@
       box-sizing: border-box;
     }
 
+
     body {
       margin: 0;
-      font-family: Arial, "Noto Sans KR", sans-serif;
+
+      font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
       color: #222;
       background: #ffffff;
     }
 
+
     .container {
       width: 90%;
       max-width: 1100px;
+
       margin: auto;
     }
 
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      padding: 28px 0;
-      border-bottom: 1px solid #eeeeee;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .logo a {
-      text-decoration: none;
-      color: #222;
-    }
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .menu a {
-      margin-left: 22px;
-      text-decoration: none;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .menu a:hover {
-      color: #000;
-    }
-
-    .menu a.active {
-      color: #000;
-      font-weight: 500;
-    }
 
 
     /* =========================
@@ -82,57 +58,73 @@
 
     .article {
       max-width: 760px;
+
       margin: 70px auto 0;
     }
 
+
     .category {
-      font-size: 12px;
       color: #888;
+
+      font-size: 12px;
+
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
+
     .article h1 {
       margin: 14px 0;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 46px;
       line-height: 1.3;
     }
 
+
     .date {
       color: #999;
+
       font-size: 13px;
     }
 
 
+
     /* =========================
-       선택적 대표사진
+       OPTIONAL DAILY IMAGE
     ========================= */
 
     .daily-image {
       margin-top: 40px;
     }
 
+
     .daily-image img {
       width: 100%;
       height: auto;
+
       max-height: 620px;
 
-      object-fit: cover;
-
       display: block;
+
+      object-fit: cover;
 
       border-radius: 14px;
     }
 
 
+
     /* =========================
-       본문
+       STORY
     ========================= */
 
     .story {
       max-width: 680px;
+
       margin: 55px auto 0;
 
       color: #444;
@@ -141,38 +133,56 @@
       line-height: 2;
     }
 
+
     .story p {
       margin: 0 0 28px;
     }
 
+
     .story h2 {
       margin: 50px 0 20px;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 25px;
       line-height: 1.5;
     }
 
+
     .story h3 {
       margin: 40px 0 18px;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 20px;
       line-height: 1.5;
     }
 
+
     .story blockquote {
       margin: 45px 0;
+
       padding-left: 22px;
 
       border-left: 2px solid #dddddd;
 
       color: #777;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 20px;
       line-height: 1.8;
     }
+
 
     .story img {
       max-width: 100%;
@@ -186,37 +196,51 @@
     }
 
 
+
     /* =========================
        POST NAVIGATION
     ========================= */
 
     .post-navigation {
       display: grid;
-      grid-template-columns: 1fr 1fr 1.25fr;
+
+      grid-template-columns:
+        1fr
+        1fr
+        1.25fr;
+
       gap: 36px;
 
       align-items: start;
 
       margin-top: 75px;
+
       padding-top: 30px;
 
       border-top: 1px solid #eeeeee;
     }
 
+
     .post-navigation a {
-      text-decoration: none;
       color: inherit;
+
+      text-decoration: none;
     }
 
 
-    /* PREVIOUS / NEXT */
+
+    /* =========================
+       PREVIOUS / NEXT
+    ========================= */
 
     .nav-side {
       min-width: 0;
     }
 
+
     .nav-label {
       display: block;
+
       margin-bottom: 9px;
 
       color: #777;
@@ -228,19 +252,26 @@
       text-transform: uppercase;
     }
 
+
     .nav-title {
       display: block;
 
       color: #444;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 15px;
       line-height: 1.5;
     }
 
+
     .nav-side a:hover .nav-title {
       color: #777;
     }
+
 
 
     /* =========================
@@ -251,11 +282,14 @@
       min-width: 0;
     }
 
+
     .daily-nav-heading {
       display: inline-block;
+
       margin-bottom: 12px;
 
       color: #666;
+
       text-decoration: none;
 
       font-size: 12px;
@@ -265,28 +299,39 @@
       text-transform: uppercase;
     }
 
+
     .daily-nav-heading:hover {
       color: #000;
     }
 
 
-    /* 최근 Daily 목록 */
+
+    /* =========================
+       DAILY PREVIEW
+    ========================= */
 
     .daily-preview {
       display: flex;
       flex-direction: column;
+
       gap: 9px;
     }
 
+
     .daily-preview-item {
       display: grid;
-      grid-template-columns: 42px 1fr;
+
+      grid-template-columns:
+        42px
+        1fr;
+
       gap: 10px;
 
       align-items: baseline;
 
       text-decoration: none;
     }
+
 
     .daily-preview-date {
       color: #aaa;
@@ -297,19 +342,27 @@
       letter-spacing: 0.3px;
     }
 
+
     .daily-preview-title {
       color: #666;
 
-      font-family: Georgia, "Noto Serif KR", serif;
+      font-family:
+        Georgia,
+        "Noto Serif KR",
+        serif;
+
       font-size: 12px;
       line-height: 1.45;
 
-      transition: color 0.2s;
+      transition:
+        color 0.2s;
     }
+
 
     .daily-preview-item:hover .daily-preview-title {
       color: #000;
     }
+
 
 
     /* =========================
@@ -318,6 +371,7 @@
 
     footer {
       margin-top: 90px;
+
       padding: 35px 0;
 
       border-top: 1px solid #eeeeee;
@@ -325,32 +379,10 @@
       text-align: center;
 
       color: #999;
+
       font-size: 13px;
     }
 
-
-    /* =========================
-       TABLET
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .menu {
-        margin-top: 18px;
-      }
-
-      .menu a {
-        margin-left: 0;
-        margin-right: 18px;
-        margin-bottom: 8px;
-      }
-
-    }
 
 
     /* =========================
@@ -363,27 +395,36 @@
         margin-top: 45px;
       }
 
+
       .article h1 {
         font-size: 36px;
       }
+
 
       .daily-image img {
         border-radius: 10px;
       }
 
+
       .story {
         font-size: 15px;
       }
 
+
       .post-navigation {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+          1fr
+          1fr;
+
         gap: 24px 18px;
       }
+
 
       .nav-daily {
         grid-column: 1 / -1;
 
         margin-top: 6px;
+
         padding-top: 20px;
 
         border-top: 1px solid #eeeeee;
@@ -396,6 +437,7 @@
   </style>
 
 </head>
+
 
 
 <body>
@@ -415,10 +457,11 @@
 
 <main class="container">
 
+
   <article class="article">
 
 
-    <!-- 카테고리 -->
+    <!-- CATEGORY -->
 
     <div class="category">
       Daily
@@ -426,7 +469,7 @@
 
 
 
-    <!-- 제목 -->
+    <!-- TITLE -->
 
     <h1>
       {{ page.title }}
@@ -434,7 +477,7 @@
 
 
 
-    <!-- 게시 날짜 -->
+    <!-- POST DATE -->
 
     <div class="date">
       {{ page.date | date: "%B %-d, %Y" }}
@@ -443,10 +486,12 @@
 
 
     <!-- =========================
-         선택적 대표사진
+         OPTIONAL DAILY IMAGE
     ========================= -->
 
-    {% if page.image and page.image != "" %}
+    {% if page.image
+      and page.image != "" %}
+
 
       <div class="daily-image">
 
@@ -457,12 +502,13 @@
 
       </div>
 
+
     {% endif %}
 
 
 
     <!-- =========================
-         본문
+         STORY
     ========================= -->
 
     <section class="story">
@@ -474,7 +520,7 @@
 
 
     <!-- =========================
-         Daily 이전/다음 글 찾기
+         DAILY POSTS
     ========================= -->
 
     {% assign daily_posts = site.posts
@@ -486,16 +532,20 @@
 
     {% for post in daily_posts %}
 
+
       {% if post.url == page.url %}
+
 
         {% assign current_index = forloop.index0 %}
 
 
-        <!-- 현재 글보다 오래된 Daily -->
+
+        <!-- OLDER DAILY POST -->
 
         {% unless forloop.last %}
 
-          {% assign older_index = current_index | plus: 1 %}
+          {% assign older_index =
+            current_index | plus: 1 %}
 
           {% assign older_daily =
             daily_posts[older_index] %}
@@ -503,18 +553,22 @@
         {% endunless %}
 
 
-        <!-- 현재 글보다 새로운 Daily -->
+
+        <!-- NEWER DAILY POST -->
 
         {% unless forloop.first %}
 
-          {% assign newer_index = current_index | minus: 1 %}
+          {% assign newer_index =
+            current_index | minus: 1 %}
 
           {% assign newer_daily =
             daily_posts[newer_index] %}
 
         {% endunless %}
 
+
       {% endif %}
+
 
     {% endfor %}
 
@@ -527,11 +581,14 @@
     <div class="post-navigation">
 
 
-      <!-- PREVIOUS : 더 최신 글 -->
+
+      <!-- PREVIOUS : NEWER POST -->
 
       <div class="nav-side">
 
+
         {% if newer_daily %}
+
 
           <a href="{{ newer_daily.url | relative_url }}">
 
@@ -545,17 +602,21 @@
 
           </a>
 
+
         {% endif %}
+
 
       </div>
 
 
 
-      <!-- NEXT : 더 오래된 글 -->
+      <!-- NEXT : OLDER POST -->
 
       <div class="nav-side">
 
+
         {% if older_daily %}
+
 
           <a href="{{ older_daily.url | relative_url }}">
 
@@ -569,7 +630,9 @@
 
           </a>
 
+
         {% endif %}
+
 
       </div>
 
@@ -581,6 +644,7 @@
 
       <div class="nav-daily">
 
+
         <a
           class="daily-nav-heading"
           href="{{ '/daily.html' | relative_url }}"
@@ -589,36 +653,51 @@
         </a>
 
 
+
         <div class="daily-preview">
+
 
           {% assign preview_count = 0 %}
 
+
           {% for daily_post in daily_posts %}
 
-            {% if daily_post.url != page.url and preview_count < 3 %}
+
+            {% if daily_post.url != page.url
+              and preview_count < 3 %}
+
 
               <a
                 class="daily-preview-item"
                 href="{{ daily_post.url | relative_url }}"
               >
 
+
                 <span class="daily-preview-date">
                   {{ daily_post.date | date: "%m.%d" }}
                 </span>
+
 
                 <span class="daily-preview-title">
                   {{ daily_post.title }}
                 </span>
 
+
               </a>
 
-              {% assign preview_count = preview_count | plus: 1 %}
+
+              {% assign preview_count =
+                preview_count | plus: 1 %}
+
 
             {% endif %}
 
+
           {% endfor %}
 
+
         </div>
+
 
       </div>
 
@@ -627,6 +706,7 @@
 
 
   </article>
+
 
 </main>
 
