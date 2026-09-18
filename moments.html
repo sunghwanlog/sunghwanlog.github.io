@@ -16,6 +16,16 @@
   <title>Moments | In Passing</title>
 
 
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/header.css' | relative_url }}"
+  >
+
+
   <style>
 
     * {
@@ -41,71 +51,6 @@
       max-width: 1100px;
 
       margin: auto;
-    }
-
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      padding: 28px 0;
-
-      border-bottom: 1px solid #eeeeee;
-    }
-
-
-    nav {
-      display: flex;
-
-      justify-content: space-between;
-      align-items: center;
-    }
-
-
-    .logo {
-      font-family: Georgia, serif;
-
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-
-    .logo a {
-      text-decoration: none;
-      color: #222;
-    }
-
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-
-      justify-content: flex-end;
-    }
-
-
-    .menu a {
-      margin-left: 22px;
-
-      text-decoration: none;
-
-      color: #555;
-
-      font-size: 14px;
-    }
-
-
-    .menu a:hover {
-      color: #000;
-    }
-
-
-    .menu a.active {
-      color: #000;
-
-      font-weight: 500;
     }
 
 
@@ -213,7 +158,9 @@
     .moment-day {
       display: block;
 
-      font-family: Georgia, serif;
+      font-family:
+        Georgia,
+        serif;
 
       font-size: 30px;
       line-height: 1;
@@ -271,7 +218,8 @@
 
       font-weight: normal;
 
-      transition: color 0.2s;
+      transition:
+        color 0.2s;
     }
 
 
@@ -324,6 +272,7 @@
 
     .moment-link:hover .moment-image img {
       opacity: 0.92;
+
       transform: scale(1.02);
     }
 
@@ -333,6 +282,7 @@
       height: 155px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -392,24 +342,6 @@
     ========================= */
 
     @media (max-width: 900px) {
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-
-      .menu {
-        margin-top: 18px;
-      }
-
-
-      .menu a {
-        margin-left: 0;
-        margin-right: 18px;
-        margin-bottom: 8px;
-      }
-
 
       .moment-post {
         grid-template-columns:
@@ -559,10 +491,11 @@
           href="{{ post.url | relative_url }}"
         >
 
+
           <article class="moment-post">
 
 
-            <!-- 날짜 -->
+            <!-- DATE -->
 
             <div class="moment-date">
 
@@ -578,12 +511,13 @@
 
 
 
-            <!-- 내용 -->
+            <!-- CONTENT -->
 
             <div class="moment-content">
 
 
-              {% if post.location and post.location != "" %}
+              {% if post.location
+                and post.location != "" %}
 
                 <div class="moment-location">
                   {{ post.location }}
@@ -597,7 +531,8 @@
               </h2>
 
 
-              {% if post.description and post.description != "" %}
+              {% if post.description
+                and post.description != "" %}
 
                 <p class="moment-description">
                   {{ post.description }}
@@ -610,9 +545,11 @@
 
 
 
-            <!-- 대표 이미지 -->
+            <!-- REPRESENTATIVE IMAGE -->
 
-            {% if post.image and post.image != "" %}
+            {% if post.image
+              and post.image != "" %}
+
 
               <div class="moment-image">
 
@@ -623,21 +560,26 @@
 
               </div>
 
+
             {% else %}
+
 
               <div class="moment-image-empty">
                 MOMENT
               </div>
+
 
             {% endif %}
 
 
           </article>
 
+
         </a>
 
 
       {% endfor %}
+
 
 
     {% else %}
