@@ -4,26 +4,42 @@
 
 header {
   padding: 28px 0;
+
   border-bottom: 1px solid #eeeeee;
+
+  background: #ffffff;
 }
 
 
 header nav {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
 }
 
 
+
+/* =========================
+   LOGO
+========================= */
+
 header .logo {
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    serif;
+
   font-size: 25px;
   font-weight: bold;
 }
 
 
 header .logo a {
+  margin: 0;
+  padding: 0;
+
   color: #222;
+
   text-decoration: none;
 }
 
@@ -36,10 +52,14 @@ header .logo a {
 header .menu {
   display: flex;
   flex-wrap: wrap;
+
   justify-content: flex-end;
   align-items: center;
 
   gap: 28px;
+
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -58,7 +78,9 @@ header .menu .menu-item > a {
   padding: 0;
 
   color: #555;
+
   font-size: 14px;
+  line-height: 1.4;
 
   text-decoration: none;
   white-space: nowrap;
@@ -72,6 +94,7 @@ header .menu .menu-item > a:hover {
 
 header .menu .menu-item > a.active {
   color: #000;
+
   font-weight: 500;
 }
 
@@ -81,66 +104,75 @@ header .menu .menu-item > a.active {
    ACTIVITY DROPDOWN
 ========================= */
 
-header .activity-menu .dropdown {
+header .menu .activity-menu {
+  position: relative;
+}
+
+
+
+/* 기본 상태에서는 반드시 숨김 */
+
+header .menu .activity-menu .activity-dropdown {
   position: absolute;
 
   top: calc(100% + 8px);
   left: 50%;
 
   width: max-content;
-  min-width: 82px;
+  min-width: 90px;
 
+  margin: 0;
   padding: 5px 0;
 
   background: #ffffff;
 
   border: none;
-  border-radius: 3px;
 
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.05);
+    0 4px 12px rgba(0, 0, 0, 0.06);
 
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 
   transform: translate(-50%, 4px);
 
   transition:
     opacity 0.15s ease,
-    transform 0.15s ease,
-    visibility 0.15s ease;
+    visibility 0.15s ease,
+    transform 0.15s ease;
 
   z-index: 1000;
 }
 
 
 
-/* Activity와 dropdown 사이
-   마우스 이동 연결 영역 */
+/* Activity와 dropdown 사이의 마우스 이동 공간 */
 
-header .activity-menu .dropdown::before {
+header .menu .activity-menu .activity-dropdown::before {
   content: "";
 
   position: absolute;
 
+  top: -8px;
   left: 0;
   right: 0;
-  top: -8px;
 
   height: 8px;
 }
 
 
 
-/* DROPDOWN LINKS */
+/* Dropdown 안의 Running / Hiking */
 
-header .activity-menu .dropdown a {
+header .menu .activity-menu .activity-dropdown > a {
   display: block;
 
   margin: 0;
   padding: 6px 12px;
 
   color: #777;
+
   font-size: 12px;
   line-height: 1.4;
 
@@ -151,25 +183,28 @@ header .activity-menu .dropdown a {
 }
 
 
-header .activity-menu .dropdown a:hover {
+header .menu .activity-menu .activity-dropdown > a:hover {
   color: #222;
+
   background: #fafafa;
 }
 
 
-header .activity-menu .dropdown a.active {
+header .menu .activity-menu .activity-dropdown > a.active {
   color: #222;
+
   font-weight: 500;
 }
 
 
 
-/* DROPDOWN OPEN */
+/* Activity에 마우스를 올렸을 때만 표시 */
 
-header .activity-menu:hover .dropdown,
-header .activity-menu:focus-within .dropdown {
+header .menu .activity-menu:hover .activity-dropdown,
+header .menu .activity-menu:focus-within .activity-dropdown {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 
   transform: translate(-50%, 0);
 }
@@ -184,6 +219,7 @@ header .activity-menu:focus-within .dropdown {
 
   header nav {
     flex-direction: column;
+
     align-items: flex-start;
   }
 
@@ -198,9 +234,15 @@ header .activity-menu:focus-within .dropdown {
   }
 
 
-  header .menu .menu-item,
+  header .menu .menu-item {
+    margin: 0;
+    padding: 0;
+  }
+
+
   header .menu .menu-item > a {
     margin: 0;
+    padding: 0;
   }
 
 }
