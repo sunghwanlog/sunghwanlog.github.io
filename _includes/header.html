@@ -17,44 +17,50 @@
 
       <div class="menu">
 
-        <a
-          href="{{ '/' | relative_url }}"
-          {% if page.url == "/" %}class="active"{% endif %}
-        >
-          Home
-        </a>
-
-
-        <a
-          href="{{ '/about.html' | relative_url }}"
-          {% if page.url == "/about.html" %}class="active"{% endif %}
-        >
-          About
-        </a>
-
-
-        <a
-          href="{{ '/photography.html' | relative_url }}"
-          {% if page.url == "/photography.html" or page.category == "photography" %}class="active"{% endif %}
-        >
-          Photography
-        </a>
-
-
-        <a
-          href="{{ '/daily.html' | relative_url }}"
-          {% if page.url == "/daily.html" or page.category == "daily" %}class="active"{% endif %}
-        >
-          Daily
-        </a>
-
-
-
-        <!-- =========================
-             ACTIVITY DROPDOWN
-        ========================= -->
 
         <div class="menu-item">
+          <a
+            href="{{ '/' | relative_url }}"
+            {% if page.url == "/" %}class="active"{% endif %}
+          >
+            Home
+          </a>
+        </div>
+
+
+        <div class="menu-item">
+          <a
+            href="{{ '/about.html' | relative_url }}"
+            {% if page.url == "/about.html" %}class="active"{% endif %}
+          >
+            About
+          </a>
+        </div>
+
+
+        <div class="menu-item">
+          <a
+            href="{{ '/photography.html' | relative_url }}"
+            {% if page.url == "/photography.html" or page.category == "photography" %}class="active"{% endif %}
+          >
+            Photography
+          </a>
+        </div>
+
+
+        <div class="menu-item">
+          <a
+            href="{{ '/daily.html' | relative_url }}"
+            {% if page.url == "/daily.html" or page.category == "daily" %}class="active"{% endif %}
+          >
+            Daily
+          </a>
+        </div>
+
+
+        <!-- ACTIVITY -->
+
+        <div class="menu-item activity-menu">
 
           <a
             href="{{ '/running.html' | relative_url }}"
@@ -79,7 +85,6 @@
               Running
             </a>
 
-
             <a
               href="{{ '/hiking.html' | relative_url }}"
               {% if page.url == "/hiking.html"
@@ -94,29 +99,35 @@
         </div>
 
 
-
-        <a
-          href="{{ '/reflections.html' | relative_url }}"
-          {% if page.url == "/reflections.html" or page.category == "reflections" %}class="active"{% endif %}
-        >
-          Reflections
-        </a>
-
-
-        <a
-          href="{{ '/thoughts.html' | relative_url }}"
-          {% if page.url == "/thoughts.html" or page.category == "thoughts" %}class="active"{% endif %}
-        >
-          Thoughts
-        </a>
+        <div class="menu-item">
+          <a
+            href="{{ '/reflections.html' | relative_url }}"
+            {% if page.url == "/reflections.html" or page.category == "reflections" %}class="active"{% endif %}
+          >
+            Reflections
+          </a>
+        </div>
 
 
-        <a
-          href="{{ '/moments.html' | relative_url }}"
-          {% if page.url == "/moments.html" or page.category == "moments" %}class="active"{% endif %}
-        >
-          Moments
-        </a>
+        <div class="menu-item">
+          <a
+            href="{{ '/thoughts.html' | relative_url }}"
+            {% if page.url == "/thoughts.html" or page.category == "thoughts" %}class="active"{% endif %}
+          >
+            Thoughts
+          </a>
+        </div>
+
+
+        <div class="menu-item">
+          <a
+            href="{{ '/moments.html' | relative_url }}"
+            {% if page.url == "/moments.html" or page.category == "moments" %}class="active"{% endif %}
+          >
+            Moments
+          </a>
+        </div>
+
 
       </div>
 
