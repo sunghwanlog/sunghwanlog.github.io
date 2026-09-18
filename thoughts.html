@@ -16,6 +16,16 @@
   <title>Thoughts | In Passing</title>
 
 
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/header.css' | relative_url }}"
+  >
+
+
   <style>
 
     * {
@@ -41,71 +51,6 @@
       max-width: 1100px;
 
       margin: auto;
-    }
-
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      padding: 28px 0;
-
-      border-bottom: 1px solid #eeeeee;
-    }
-
-
-    nav {
-      display: flex;
-
-      justify-content: space-between;
-      align-items: center;
-    }
-
-
-    .logo {
-      font-family: Georgia, serif;
-
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-
-    .logo a {
-      text-decoration: none;
-      color: #222;
-    }
-
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-
-      justify-content: flex-end;
-    }
-
-
-    .menu a {
-      margin-left: 22px;
-
-      text-decoration: none;
-
-      color: #555;
-
-      font-size: 14px;
-    }
-
-
-    .menu a:hover {
-      color: #000;
-    }
-
-
-    .menu a.active {
-      color: #000;
-
-      font-weight: 500;
     }
 
 
@@ -212,7 +157,9 @@
     .thought-day {
       display: block;
 
-      font-family: Georgia, serif;
+      font-family:
+        Georgia,
+        serif;
 
       font-size: 30px;
       line-height: 1;
@@ -259,7 +206,8 @@
 
       font-weight: normal;
 
-      transition: color 0.2s;
+      transition:
+        color 0.2s;
     }
 
 
@@ -313,34 +261,6 @@
       color: #999;
 
       font-size: 13px;
-    }
-
-
-
-    /* =========================
-       TABLET
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      nav {
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-
-
-      .menu {
-        margin-top: 18px;
-      }
-
-
-      .menu a {
-        margin-left: 0;
-        margin-right: 18px;
-        margin-bottom: 8px;
-      }
-
     }
 
 
@@ -455,10 +375,11 @@
           href="{{ post.url | relative_url }}"
         >
 
+
           <article class="thought-post">
 
 
-            <!-- 날짜 -->
+            <!-- DATE -->
 
             <div class="thought-date">
 
@@ -474,7 +395,7 @@
 
 
 
-            <!-- 내용 -->
+            <!-- CONTENT -->
 
             <div class="thought-content">
 
@@ -483,7 +404,8 @@
               </h2>
 
 
-              {% if post.description and post.description != "" %}
+              {% if post.description
+                and post.description != "" %}
 
                 <p class="thought-description">
                   {{ post.description }}
@@ -496,10 +418,12 @@
 
           </article>
 
+
         </a>
 
 
       {% endfor %}
+
 
 
     {% else %}
