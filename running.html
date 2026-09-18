@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Running | Sunghwan Log</title>
+  <title>Running | In Passing</title>
 
   <style>
 
@@ -160,31 +160,31 @@
        DATE
     ========================= */
 
-.running-date {
-  align-self: start;
-  padding-top: 2px;
-}
+    .running-date {
+      align-self: start;
+      padding-top: 2px;
+    }
 
-.running-day {
-  display: block;
+    .running-day {
+      display: block;
 
-  font-family: Georgia, serif;
-  font-size: 30px;
-  line-height: 1;
+      font-family: Georgia, serif;
+      font-size: 30px;
+      line-height: 1;
 
-  color: #333;
-}
+      color: #333;
+    }
 
-.running-month {
-  display: block;
-  margin-top: 7px;
+    .running-month {
+      display: block;
+      margin-top: 7px;
 
-  color: #999;
-  font-size: 11px;
+      color: #999;
+      font-size: 11px;
 
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
 
 
     /* =========================
@@ -262,35 +262,35 @@
        GPS PREVIEW
     ========================= */
 
-.running-gps {
-  width: 100%;
-  height: 140px;
+    .running-gps {
+      width: 100%;
+      height: 140px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  overflow: hidden;
+      overflow: hidden;
 
-  border-radius: 10px;
-  background: #ffffff;
-}
+      border-radius: 10px;
+      background: #ffffff;
+    }
 
-.running-gps img {
-  max-width: 100%;
-  max-height: 100%;
+    .running-gps img {
+      max-width: 100%;
+      max-height: 100%;
 
-  width: auto;
-  height: auto;
+      width: auto;
+      height: auto;
 
-  object-fit: contain;
+      object-fit: contain;
 
-  display: block;
+      display: block;
 
-  transition:
-    opacity 0.2s,
-    transform 0.3s;
-}
+      transition:
+        opacity 0.2s,
+        transform 0.3s;
+    }
 
     .running-link:hover .running-gps img {
       opacity: 0.9;
@@ -454,42 +454,10 @@
 
 
 <!-- =========================
-     HEADER
+     COMMON HEADER
 ========================= -->
 
-<header>
-
-  <div class="container">
-
-    <nav>
-
-      <div class="logo">
-
-        <a href="{{ '/' | relative_url }}">
-          Sunghwan Log
-        </a>
-
-      </div>
-
-
-      <div class="menu">
-
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/photography.html' | relative_url }}">Photography</a>
-        <a href="{{ '/daily.html' | relative_url }}">Daily</a>
-        <a href="{{ '/running.html' | relative_url }}">Running</a>
-        <a href="{{ '/reflections.html' | relative_url }}">Reflections</a>
-        <a href="{{ '/thoughts.html' | relative_url }}">Thoughts</a>
-        <a href="{{ '/moments.html' | relative_url }}">Moments</a>
-        <a href="{{ '/about.html' | relative_url }}">About</a>
-
-      </div>
-
-    </nav>
-
-  </div>
-
-</header>
+{% include header.html %}
 
 
 
@@ -533,9 +501,7 @@
       {% for post in running_posts %}
 
 
-        <!--
-          카드 전체가 개별 Running 글로 이동
-        -->
+        <!-- 카드 전체가 개별 Running 글로 이동 -->
 
         <a
           class="running-link"
@@ -550,17 +516,17 @@
                  DATE
             ========================= -->
 
-        <div class="running-date">
-          
-          <span class="running-day">
-            {{ post.date | date: "%d" }}
-          </span>
+            <div class="running-date">
 
-          <span class="running-month">
-    {{ post.date | date: "%b %Y" }}
-  </span>
+              <span class="running-day">
+                {{ post.date | date: "%d" }}
+              </span>
 
-</div>
+              <span class="running-month">
+                {{ post.date | date: "%b %Y" }}
+              </span>
+
+            </div>
 
 
 
@@ -713,8 +679,8 @@
 
 <footer>
 
-  © 2026 Sunghwan Log ·
-  Ordinary days, quietly collected.
+  © 2026 In Passing ·
+  A personal archive by Sunghwan.
 
 </footer>
 
