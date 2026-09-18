@@ -17,35 +17,59 @@
 
       <div class="menu">
 
-        <a href="{{ '/' | relative_url }}">
+        <a
+          href="{{ '/' | relative_url }}"
+          {% if page.url == "/" %}class="active"{% endif %}
+        >
           Home
         </a>
 
-        <a href="{{ '/about.html' | relative_url }}">
+        <a
+          href="{{ '/about.html' | relative_url }}"
+          {% if page.url == "/about.html" %}class="active"{% endif %}
+        >
           About
         </a>
 
-        <a href="{{ '/photography.html' | relative_url }}">
+        <a
+          href="{{ '/photography.html' | relative_url }}"
+          {% if page.url == "/photography.html" or page.category == "photography" %}class="active"{% endif %}
+        >
           Photography
         </a>
 
-        <a href="{{ '/daily.html' | relative_url }}">
+        <a
+          href="{{ '/daily.html' | relative_url }}"
+          {% if page.url == "/daily.html" or page.category == "daily" %}class="active"{% endif %}
+        >
           Daily
         </a>
 
-        <a href="{{ '/running.html' | relative_url }}">
+        <a
+          href="{{ '/running.html' | relative_url }}"
+          {% if page.url == "/running.html" or page.category == "running" %}class="active"{% endif %}
+        >
           Running
         </a>
 
-        <a href="{{ '/reflections.html' | relative_url }}">
+        <a
+          href="{{ '/reflections.html' | relative_url }}"
+          {% if page.url == "/reflections.html" or page.category == "reflections" %}class="active"{% endif %}
+        >
           Reflections
         </a>
 
-        <a href="{{ '/thoughts.html' | relative_url }}">
+        <a
+          href="{{ '/thoughts.html' | relative_url }}"
+          {% if page.url == "/thoughts.html" or page.category == "thoughts" %}class="active"{% endif %}
+        >
           Thoughts
         </a>
 
-        <a href="{{ '/moments.html' | relative_url }}">
+        <a
+          href="{{ '/moments.html' | relative_url }}"
+          {% if page.url == "/moments.html" or page.category == "moments" %}class="active"{% endif %}
+        >
           Moments
         </a>
 
