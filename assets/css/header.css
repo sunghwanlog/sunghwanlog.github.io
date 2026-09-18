@@ -71,7 +71,7 @@ header .dropdown {
   position: absolute;
 
   top: 100%;
-  left: 12px;
+  left: 50%;
 
   min-width: 125px;
 
@@ -83,7 +83,7 @@ header .dropdown {
   opacity: 0;
   visibility: hidden;
 
-  transform: translateY(5px);
+  transform: translate(-50%, 5px);
 
   transition:
     opacity 0.18s ease,
