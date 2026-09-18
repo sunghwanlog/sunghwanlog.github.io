@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Daily | Sunghwan Log</title>
+  <title>Daily | In Passing</title>
 
   <style>
 
@@ -28,7 +28,6 @@
       max-width: 1100px;
       margin: auto;
     }
-
 
     /* =========================
        HEADER
@@ -78,7 +77,6 @@
       font-weight: 500;
     }
 
-
     /* =========================
        DAILY HEADER
     ========================= */
@@ -90,7 +88,6 @@
 
     .daily-header h1 {
       margin: 12px 0 14px;
-
       font-family: Georgia, "Noto Serif KR", serif;
       font-size: 52px;
       line-height: 1.2;
@@ -99,12 +96,10 @@
     .daily-intro {
       max-width: 620px;
       margin: 0;
-
       color: #777;
       font-size: 15px;
       line-height: 1.8;
     }
-
 
     /* =========================
        DAILY LIST
@@ -119,16 +114,13 @@
       display: grid;
       grid-template-columns: 90px 1fr;
       gap: 30px;
-
       padding: 30px 0;
-
       border-top: 1px solid #eeeeee;
     }
 
     .daily-post:last-child {
       border-bottom: 1px solid #eeeeee;
     }
-
 
     /* 날짜 */
 
@@ -138,25 +130,20 @@
 
     .daily-day {
       display: block;
-
       font-family: Georgia, serif;
       font-size: 30px;
       line-height: 1;
-
       color: #333;
     }
 
     .daily-month {
       display: block;
       margin-top: 7px;
-
       color: #999;
       font-size: 11px;
-
       letter-spacing: 0.8px;
       text-transform: uppercase;
     }
-
 
     /* 글 내용 */
 
@@ -167,11 +154,9 @@
 
     .daily-content h2 {
       margin: 0 0 9px;
-
       font-family: Georgia, "Noto Serif KR", serif;
       font-size: 23px;
       line-height: 1.4;
-
       font-weight: normal;
     }
 
@@ -181,7 +166,6 @@
 
     .daily-description {
       margin: 0;
-
       color: #777;
       font-size: 14px;
       line-height: 1.8;
@@ -190,14 +174,11 @@
     .daily-category {
       display: inline-block;
       margin-top: 13px;
-
       color: #999;
       font-size: 10px;
-
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-
 
     /* =========================
        EMPTY STATE
@@ -205,15 +186,12 @@
 
     .empty-daily {
       padding: 50px 0;
-
       border-top: 1px solid #eeeeee;
       border-bottom: 1px solid #eeeeee;
-
       color: #999;
       font-size: 14px;
       line-height: 1.8;
     }
-
 
     /* =========================
        FOOTER
@@ -222,15 +200,11 @@
     footer {
       margin-top: 90px;
       padding: 35px 0;
-
       border-top: 1px solid #eeeeee;
-
       text-align: center;
-
       color: #999;
       font-size: 13px;
     }
-
 
     /* =========================
        TABLET
@@ -255,7 +229,6 @@
 
     }
 
-
     /* =========================
        MOBILE
     ========================= */
@@ -277,7 +250,6 @@
       .daily-post {
         grid-template-columns: 58px 1fr;
         gap: 18px;
-
         padding: 24px 0;
       }
 
@@ -299,58 +271,19 @@
 
 </head>
 
-
 <body>
 
-
 <!-- =========================
-     HEADER
+     COMMON HEADER
 ========================= -->
 
-<header>
-
-  <div class="container">
-
-    <nav>
-
-      <div class="logo">
-
-        <a href="{{ '/' | relative_url }}">
-          Sunghwan Log
-        </a>
-
-      </div>
-
-
-      <div class="menu">
-
-<a href="{{ '/' | relative_url }}">Home</a>
-<a href="{{ '/photography.html' | relative_url }}">Photography</a>
-<a href="{{ '/daily.html' | relative_url }}">Daily</a>
-<a href="{{ '/running.html' | relative_url }}">Running</a>
-<a href="{{ '/reflections.html' | relative_url }}">Reflections</a>
-<a href="{{ '/thoughts.html' | relative_url }}">Thoughts</a>
-<a href="{{ '/moments.html' | relative_url }}">Moments</a>
-<a href="{{ '/about.html' | relative_url }}">About</a>
-
-      </div>
-
-    </nav>
-
-  </div>
-
-</header>
-
-
+{% include header.html %}
 
 <!-- =========================
      MAIN
 ========================= -->
 
 <main class="container">
-
-
-  <!-- Daily 소개 -->
 
   <section class="daily-header">
 
@@ -364,26 +297,19 @@
 
   </section>
 
-
-
   <!-- =========================
        Daily 글 목록
   ========================= -->
 
   <section class="daily-list">
 
-
-    {% assign daily_posts = site.posts
-      | where: "category", "daily" %}
-
+    {% assign daily_posts = site.posts | where: "category", "daily" %}
 
     {% if daily_posts.size > 0 %}
-
 
       {% for post in daily_posts %}
 
         <article class="daily-post">
-
 
           <!-- 날짜 -->
 
@@ -399,8 +325,6 @@
 
           </div>
 
-
-
           <!-- 글 -->
 
           <div class="daily-content">
@@ -413,7 +337,6 @@
 
             </a>
 
-
             {% if post.description and post.description != "" %}
 
               <p class="daily-description">
@@ -422,38 +345,27 @@
 
             {% endif %}
 
-
             <span class="daily-category">
               Daily
             </span>
 
           </div>
 
-
         </article>
 
       {% endfor %}
 
-
     {% else %}
 
-
       <div class="empty-daily">
-
         아직 작성된 Daily 기록이 없습니다.
-
       </div>
-
 
     {% endif %}
 
-
   </section>
 
-
 </main>
-
-
 
 <!-- =========================
      FOOTER
@@ -461,11 +373,10 @@
 
 <footer>
 
-  © 2026 Sunghwan Log ·
-  Ordinary days, quietly collected.
+  © 2026 In Passing ·
+  A personal archive by Sunghwan.
 
 </footer>
-
 
 </body>
 
