@@ -1,0 +1,252 @@
+/* =========================
+   THOUGHTS
+========================= */
+
+
+/* =========================
+   THOUGHTS HEADER
+========================= */
+
+.thoughts-header {
+  max-width: 820px;
+
+  margin: 75px auto 0;
+}
+
+
+.thoughts-header h1 {
+  margin: 0 0 14px;
+
+  font-family:
+    Georgia,
+    "Noto Serif KR",
+    serif;
+
+  font-size: 52px;
+  line-height: 1.2;
+}
+
+
+.thoughts-intro {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #777;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+
+/* =========================
+   THOUGHTS LIST
+========================= */
+
+.thoughts-list {
+  max-width: 820px;
+
+  margin: 65px auto 0;
+}
+
+
+.thought-link {
+  display: block;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.thought-post {
+  display: grid;
+
+  grid-template-columns:
+    90px
+    minmax(0, 1fr);
+
+  gap: 30px;
+
+  align-items: start;
+
+  padding: 34px 0;
+
+  border-top: 1px solid #eeeeee;
+
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+}
+
+
+.thought-link:last-child .thought-post {
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+.thought-link:hover .thought-post {
+  transform: translateY(-2px);
+}
+
+
+
+/* =========================
+   DATE
+========================= */
+
+.thought-date {
+  align-self: start;
+
+  padding-top: 2px;
+}
+
+
+.thought-day {
+  display: block;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 30px;
+  line-height: 1;
+
+  color: #333;
+}
+
+
+.thought-month {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #999;
+
+  font-size: 11px;
+
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+}
+
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.thought-content {
+  max-width: 600px;
+}
+
+
+.thought-content h2 {
+  margin: 0 0 11px;
+
+  font-family:
+    Georgia,
+    "Noto Serif KR",
+    serif;
+
+  font-size: 24px;
+  line-height: 1.45;
+
+  font-weight: normal;
+
+  transition:
+    color 0.2s;
+}
+
+
+.thought-link:hover .thought-content h2 {
+  color: #777;
+}
+
+
+.thought-description {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-thoughts {
+  padding: 50px 0;
+
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+
+  color: #999;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  margin-top: 90px;
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .thoughts-header {
+    margin-top: 50px;
+  }
+
+
+  .thoughts-header h1 {
+    font-size: 42px;
+  }
+
+
+  .thoughts-list {
+    margin-top: 45px;
+  }
+
+
+  .thought-post {
+    grid-template-columns:
+      58px
+      minmax(0, 1fr);
+
+    gap: 18px;
+
+    padding: 28px 0;
+  }
+
+
+  .thought-day {
+    font-size: 25px;
+  }
+
+
+  .thought-content h2 {
+    font-size: 21px;
+  }
+
+
+  .thought-description {
+    font-size: 13px;
+  }
+
+}
