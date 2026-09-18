@@ -1,0 +1,402 @@
+/* =========================
+   HOME
+========================= */
+
+
+/* =========================
+   PAGE
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  margin-top: 35px;
+  height: 430px;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.10),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("../../images/hero.jpg");
+
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 45px 45px 30px 45px;
+
+  color: white;
+}
+
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: 52px;
+  margin: 0 0 12px;
+}
+
+
+.hero p {
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+
+/* =========================
+   RECENT STORIES
+========================= */
+
+.section-title {
+  margin-top: 55px;
+  margin-bottom: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.section-title h2 {
+  font-family: Georgia, serif;
+  font-size: 28px;
+
+  margin: 0;
+}
+
+
+
+/* =========================
+   POSTS
+========================= */
+
+.posts {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+/* 카드 전체를 클릭 가능하게 */
+
+.post-link {
+  display: block;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.card {
+  height: 100%;
+
+  border: 1px solid #e7e7e7;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  background: white;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+
+.card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* =========================
+   REAL IMAGE
+========================= */
+
+.card-image-real {
+  width: 100%;
+  height: 190px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.4s ease;
+}
+
+
+.card:hover .card-image-real {
+  transform: scale(1.03);
+}
+
+
+
+/* =========================
+   PLACEHOLDER
+========================= */
+
+.card-placeholder {
+  width: 100%;
+  height: 190px;
+}
+
+
+/* Daily */
+
+.placeholder-daily {
+  background:
+    linear-gradient(
+      135deg,
+      #eee2d3,
+      #f7f4ef
+    );
+}
+
+
+/* Running */
+
+.placeholder-running {
+  background:
+    linear-gradient(
+      135deg,
+      #dbe8df,
+      #eef3ed
+    );
+}
+
+
+/* Reflections */
+
+.placeholder-reflections {
+  background:
+    linear-gradient(
+      135deg,
+      #ddd4ca,
+      #f0ebe6
+    );
+}
+
+
+/* Thoughts */
+
+.placeholder-thoughts {
+  background:
+    linear-gradient(
+      135deg,
+      #d9e7ed,
+      #eef4f5
+    );
+}
+
+
+/* Moments */
+
+.placeholder-moments {
+  background:
+    linear-gradient(
+      135deg,
+      #f0dfd4,
+      #f6f0eb
+    );
+}
+
+
+/* Photography */
+
+.placeholder-photography {
+  background:
+    linear-gradient(
+      135deg,
+      #e3e8eb,
+      #f4f5f5
+    );
+}
+
+
+/* 기타 카테고리 */
+
+.placeholder-default {
+  background:
+    linear-gradient(
+      135deg,
+      #eeeeee,
+      #f7f7f7
+    );
+}
+
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.card-content {
+  padding: 20px;
+}
+
+
+.date {
+  color: #888;
+
+  font-size: 12px;
+}
+
+
+.category {
+  display: inline-block;
+
+  margin-top: 14px;
+
+  padding: 5px 10px;
+
+  background: #f1f3f5;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  color: #555;
+}
+
+
+.card h3 {
+  margin: 12px 0 8px;
+
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+
+.card p {
+  margin: 0;
+
+  color: #666;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+
+
+/* =========================
+   ARCHIVE INTRO
+========================= */
+
+.archive-intro {
+  margin-top: 75px;
+
+  padding: 50px;
+
+  background: #f8f8f6;
+
+  border-radius: 18px;
+
+  text-align: center;
+}
+
+
+.archive-intro h2 {
+  margin: 0 0 18px;
+
+  font-family: Georgia, serif;
+
+  font-size: 27px;
+}
+
+
+.archive-intro p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #666;
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  margin-top: 80px;
+}
+
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .container {
+    width: 92%;
+  }
+
+
+  .hero {
+    height: 330px;
+
+    padding: 30px;
+  }
+
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+
+  .hero p {
+    font-size: 15px;
+  }
+
+
+  .posts {
+    grid-template-columns: 1fr;
+  }
+
+
+  .archive-intro {
+    padding: 35px 25px;
+  }
+
+}
