@@ -16,6 +16,16 @@
   <title>About | In Passing</title>
 
 
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/header.css' | relative_url }}"
+  >
+
+
   <style>
 
     * {
@@ -40,66 +50,6 @@
       width: 90%;
       max-width: 1100px;
       margin: auto;
-    }
-
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      padding: 28px 0;
-      border-bottom: 1px solid #eeeeee;
-    }
-
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-
-    .logo a {
-      text-decoration: none;
-      color: #222;
-    }
-
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-
-    .menu a {
-      margin-left: 22px;
-
-      text-decoration: none;
-
-      color: #555;
-
-      font-size: 14px;
-    }
-
-
-    .menu a:hover {
-      color: #000;
-    }
-
-
-    .menu a.active {
-      color: #000;
-      font-weight: 500;
     }
 
 
@@ -217,7 +167,9 @@
 
       color: #999;
 
-      font-family: Georgia, serif;
+      font-family:
+        Georgia,
+        serif;
 
       font-size: 14px;
       font-style: italic;
@@ -411,33 +363,6 @@
 
 
     /* =========================
-       TABLET
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-
-      .menu {
-        margin-top: 18px;
-      }
-
-
-      .menu a {
-        margin-left: 0;
-        margin-right: 18px;
-        margin-bottom: 8px;
-      }
-
-    }
-
-
-
-    /* =========================
        MOBILE
     ========================= */
 
@@ -501,11 +426,13 @@
 {% include header.html %}
 
 
+
 <!-- =========================
      MAIN
 ========================= -->
 
 <main class="container">
+
 
   <section class="about">
 
