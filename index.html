@@ -1,5 +1,6 @@
 ---
 ---
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -7,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sunghwan Log</title>
+  <title>In Passing</title>
 
   <style>
 
@@ -83,6 +84,11 @@
 
     .menu a:hover {
       color: #000;
+    }
+
+    .menu a.active {
+      color: #000;
+      font-weight: 500;
     }
 
 
@@ -246,7 +252,7 @@
 
     /* Reflections */
 
-    .placeholder-Reflections {
+    .placeholder-reflections {
       background:
         linear-gradient(
           135deg,
@@ -489,42 +495,10 @@
 
 
 <!-- =========================
-     HEADER
+     COMMON HEADER
 ========================= -->
 
-<header>
-
-  <div class="container">
-
-    <nav>
-
-      <div class="logo">
-
-        <a href="{{ '/' | relative_url }}">
-          Sunghwan Log
-        </a>
-
-      </div>
-
-
-      <div class="menu">
-
-<a href="{{ '/' | relative_url }}">Home</a>
-<a href="{{ '/photography.html' | relative_url }}">Photography</a>
-<a href="{{ '/daily.html' | relative_url }}">Daily</a>
-<a href="{{ '/running.html' | relative_url }}">Running</a>
-<a href="{{ '/reflections.html' | relative_url }}">Reflections</a>
-<a href="{{ '/thoughts.html' | relative_url }}">Thoughts</a>
-<a href="{{ '/moments.html' | relative_url }}">Moments</a>
-<a href="{{ '/about.html' | relative_url }}">About</a>
-
-      </div>
-
-    </nav>
-
-  </div>
-
-</header>
+{% include header.html %}
 
 
 
@@ -573,11 +547,11 @@
 
     <!--
       _posts 폴더에 있는 글 가운데
-      최신 글 3개를 자동으로 불러옵니다.
+      Running을 제외한 최신 글 3개를 자동으로 불러옵니다.
     -->
 
     {% assign recent_posts = site.posts | where_exp: "post", "post.category != 'running'" %}
-    
+
     {% for post in recent_posts limit:3 %}
 
 
@@ -630,7 +604,7 @@
               </div>
 
 
-            {% elsif post.category == "Reflections" %}
+            {% elsif post.category == "reflections" %}
 
               <div
                 class="card-placeholder placeholder-reflections">
@@ -681,10 +655,6 @@
 
             <!--
               Photography는 촬영 시점을 우선 표시합니다.
-
-              예:
-              2008년 봄
-
               다른 카테고리는 게시 날짜를 표시합니다.
             -->
 
@@ -781,8 +751,8 @@
 
 <footer>
 
-  © 2026 Sunghwan Log ·
-  Keep going, keep growing.
+  © 2026 In Passing ·
+  A personal archive by Sunghwan.
 
 </footer>
 
