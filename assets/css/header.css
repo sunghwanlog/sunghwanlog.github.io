@@ -102,6 +102,7 @@ header .dropdown a {
   color: #666;
   font-size: 13px;
 
+  text-align: center;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -121,9 +122,6 @@ header .menu-item:focus-within .dropdown {
   transform: translate(-50%, 0);
 }
 
-header .dropdown a {
-  text-align: center;
-}
 
 
 /* =========================
@@ -148,11 +146,6 @@ header .dropdown a {
     margin-left: 0;
     margin-right: 18px;
     margin-bottom: 8px;
-  }
-
-
-  header .dropdown {
-    left: 0;
   }
 
 }
