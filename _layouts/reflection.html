@@ -13,6 +13,16 @@
   <title>{{ page.title }} | In Passing</title>
 
 
+  <!-- =========================
+       COMMON HEADER CSS
+  ========================= -->
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/header.css' | relative_url }}"
+  >
+
+
   <style>
 
     * {
@@ -38,70 +48,6 @@
       max-width: 1100px;
 
       margin: auto;
-    }
-
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      padding: 28px 0;
-
-      border-bottom: 1px solid #eeeeee;
-    }
-
-
-    nav {
-      display: flex;
-
-      justify-content: space-between;
-      align-items: center;
-    }
-
-
-    .logo {
-      font-family: Georgia, serif;
-
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-
-    .logo a {
-      text-decoration: none;
-      color: #222;
-    }
-
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-
-      justify-content: flex-end;
-    }
-
-
-    .menu a {
-      margin-left: 22px;
-
-      text-decoration: none;
-
-      color: #555;
-
-      font-size: 14px;
-    }
-
-
-    .menu a:hover {
-      color: #000;
-    }
-
-
-    .menu a.active {
-      color: #000;
-      font-weight: 500;
     }
 
 
@@ -161,7 +107,6 @@
 
     .article-meta {
       display: flex;
-
       flex-wrap: wrap;
 
       justify-content: center;
@@ -386,6 +331,7 @@
 
     .category-block > a {
       text-decoration: none;
+
       color: inherit;
     }
 
@@ -393,7 +339,9 @@
     .category-name {
       margin-bottom: 14px;
 
-      font-family: Georgia, serif;
+      font-family:
+        Georgia,
+        serif;
 
       font-size: 18px;
     }
@@ -462,24 +410,6 @@
     ========================= */
 
     @media (max-width: 900px) {
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-
-      .menu {
-        margin-top: 18px;
-      }
-
-
-      .menu a {
-        margin-left: 0;
-        margin-right: 18px;
-        margin-bottom: 8px;
-      }
-
 
       .post-navigation {
         grid-template-columns:
@@ -575,6 +505,7 @@
 
 <main class="container">
 
+
   <article class="article">
 
 
@@ -599,7 +530,8 @@
       <div class="article-meta">
 
 
-        {% if page.type and page.type != "" %}
+        {% if page.type
+          and page.type != "" %}
 
           <span>
             {{ page.type }}
@@ -609,10 +541,16 @@
 
 
 
-        {% if page.creator and page.creator != "" %}
+        {% if page.creator
+          and page.creator != "" %}
 
-          {% if page.type and page.type != "" %}
-            <span class="meta-dot">·</span>
+          {% if page.type
+            and page.type != "" %}
+
+            <span class="meta-dot">
+              ·
+            </span>
+
           {% endif %}
 
           <span>
@@ -623,8 +561,13 @@
 
 
 
-        {% if page.type or page.creator %}
-          <span class="meta-dot">·</span>
+        {% if page.type
+          or page.creator %}
+
+          <span class="meta-dot">
+            ·
+          </span>
+
         {% endif %}
 
 
@@ -644,7 +587,9 @@
          IMAGE
     ========================= -->
 
-    {% if page.image and page.image != "" %}
+    {% if page.image
+      and page.image != "" %}
+
 
       <div class="reflection-image">
 
@@ -654,6 +599,7 @@
         >
 
       </div>
+
 
     {% endif %}
 
@@ -685,9 +631,12 @@
 
     {% for post in reflection_posts %}
 
+
       {% if post.url == page.url %}
 
-        {% assign current_index = forloop.index0 %}
+
+        {% assign current_index =
+          forloop.index0 %}
 
 
         {% unless forloop.last %}
@@ -714,6 +663,7 @@
 
       {% endif %}
 
+
     {% endfor %}
 
 
@@ -725,9 +675,11 @@
     <section class="post-navigation">
 
 
+
       <!-- PREVIOUS -->
 
       <div class="nav-item">
+
 
         <span class="nav-label">
           Previous
@@ -754,6 +706,7 @@
 
         {% endif %}
 
+
       </div>
 
 
@@ -761,6 +714,7 @@
       <!-- NEXT -->
 
       <div class="nav-item">
+
 
         <span class="nav-label">
           Next
@@ -786,6 +740,7 @@
           </div>
 
         {% endif %}
+
 
       </div>
 
@@ -831,7 +786,8 @@
               >
 
 
-                {% if post.image and post.image != "" %}
+                {% if post.image
+                  and post.image != "" %}
 
                   <img
                     src="{{ post.image | relative_url }}"
@@ -869,6 +825,7 @@
 
 
   </article>
+
 
 </main>
 
