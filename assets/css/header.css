@@ -121,6 +121,9 @@ header .menu-item:focus-within .dropdown {
   transform: translate(-50%, 0);
 }
 
+header .dropdown a {
+  text-align: center;
+}
 
 
 /* =========================
