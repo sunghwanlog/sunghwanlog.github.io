@@ -77,9 +77,10 @@ header .menu .menu-item > a {
   margin: 0;
   padding: 0;
 
-  color: #555;
+  color: #777;
 
-  font-size: 15px;
+/* 메뉴 글씨 크기와 굵기 */
+  font-size: 15.2px;
   font-weight: 600;
   line-height: 1.4;
 
@@ -87,14 +88,17 @@ header .menu .menu-item > a {
   white-space: nowrap;
 }
 
+  transition: color 0.15s ease;
+}
+
 
 header .menu .menu-item > a:hover {
-  color: #000;
+  color: #222;
 }
 
 
 header .menu .menu-item > a.active {
-  color: #000;
+  color: #222;
 }
 
 
@@ -170,9 +174,9 @@ header .menu .activity-menu .activity-dropdown > a {
   margin: 0;
   padding: 6px 12px;
 
-  color: #777;
+  color: #999;
 
-  font-size: 13px;
+  font-size: 13.2px;
   font-weight: 500;
   line-height: 1.4;
 
@@ -181,6 +185,12 @@ header .menu .activity-menu .activity-dropdown > a {
 
   white-space: nowrap;
 }
+
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
 
 
 header .menu .activity-menu .activity-dropdown > a:hover {
@@ -192,8 +202,6 @@ header .menu .activity-menu .activity-dropdown > a:hover {
 
 header .menu .activity-menu .activity-dropdown > a.active {
   color: #222;
-
-  font-weight: 500;
 }
 
 
