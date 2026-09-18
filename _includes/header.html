@@ -24,12 +24,14 @@
           Home
         </a>
 
+
         <a
           href="{{ '/about.html' | relative_url }}"
           {% if page.url == "/about.html" %}class="active"{% endif %}
         >
           About
         </a>
+
 
         <a
           href="{{ '/photography.html' | relative_url }}"
@@ -38,6 +40,7 @@
           Photography
         </a>
 
+
         <a
           href="{{ '/daily.html' | relative_url }}"
           {% if page.url == "/daily.html" or page.category == "daily" %}class="active"{% endif %}
@@ -45,12 +48,52 @@
           Daily
         </a>
 
-        <a
-          href="{{ '/running.html' | relative_url }}"
-          {% if page.url == "/running.html" or page.category == "running" %}class="active"{% endif %}
-        >
-          Running
-        </a>
+
+
+        <!-- =========================
+             ACTIVITY DROPDOWN
+        ========================= -->
+
+        <div class="menu-item">
+
+          <a
+            href="{{ '/running.html' | relative_url }}"
+            {% if page.url == "/running.html"
+              or page.url == "/hiking.html"
+              or page.category == "running"
+              or page.category == "hiking"
+            %}class="active"{% endif %}
+          >
+            Activity
+          </a>
+
+
+          <div class="dropdown">
+
+            <a
+              href="{{ '/running.html' | relative_url }}"
+              {% if page.url == "/running.html"
+                or page.category == "running"
+              %}class="active"{% endif %}
+            >
+              Running
+            </a>
+
+
+            <a
+              href="{{ '/hiking.html' | relative_url }}"
+              {% if page.url == "/hiking.html"
+                or page.category == "hiking"
+              %}class="active"{% endif %}
+            >
+              Hiking
+            </a>
+
+          </div>
+
+        </div>
+
+
 
         <a
           href="{{ '/reflections.html' | relative_url }}"
@@ -59,12 +102,14 @@
           Reflections
         </a>
 
+
         <a
           href="{{ '/thoughts.html' | relative_url }}"
           {% if page.url == "/thoughts.html" or page.category == "thoughts" %}class="active"{% endif %}
         >
           Thoughts
         </a>
+
 
         <a
           href="{{ '/moments.html' | relative_url }}"
