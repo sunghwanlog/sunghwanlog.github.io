@@ -1,0 +1,155 @@
+/* =========================
+   COMMON HEADER
+========================= */
+
+header {
+  padding: 28px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+header .logo {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+header .logo a {
+  color: #222;
+  text-decoration: none;
+}
+
+
+header .menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+header .menu > a,
+header .menu-item > a {
+  margin-left: 22px;
+
+  color: #555;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+
+header .menu a:hover {
+  color: #000;
+}
+
+
+header .menu a.active {
+  color: #000;
+  font-weight: 500;
+}
+
+
+
+/* =========================
+   ACTIVITY DROPDOWN
+========================= */
+
+header .menu-item {
+  position: relative;
+}
+
+
+header .dropdown {
+  position: absolute;
+
+  top: 100%;
+  left: 12px;
+
+  min-width: 125px;
+
+  padding: 14px 0 8px;
+
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(5px);
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s ease;
+
+  z-index: 1000;
+}
+
+
+header .dropdown a {
+  display: block;
+
+  padding: 8px 16px;
+
+  color: #666;
+  font-size: 13px;
+
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+header .dropdown a:hover {
+  color: #000;
+  background: #fafafa;
+}
+
+
+header .menu-item:hover .dropdown,
+header .menu-item:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  header .menu {
+    margin-top: 18px;
+  }
+
+
+  header .menu > a,
+  header .menu-item > a {
+    margin-left: 0;
+    margin-right: 18px;
+    margin-bottom: 8px;
+  }
+
+
+  header .dropdown {
+    left: 0;
+  }
+
+}
