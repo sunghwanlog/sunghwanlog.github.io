@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{{ page.title }} | Sunghwan Log</title>
+  <title>{{ page.title }} | In Passing</title>
 
   <style>
 
@@ -68,6 +68,11 @@
 
     .menu a:hover {
       color: #000;
+    }
+
+    .menu a.active {
+      color: #000;
+      font-weight: 500;
     }
 
 
@@ -238,73 +243,73 @@
     }
 
 
-   /* =========================
-   DAILY CATEGORY
-========================= */
+    /* =========================
+       DAILY CATEGORY
+    ========================= */
 
-.nav-daily {
-  min-width: 0;
-}
+    .nav-daily {
+      min-width: 0;
+    }
 
-.daily-nav-heading {
-  display: inline-block;
-  margin-bottom: 12px;
+    .daily-nav-heading {
+      display: inline-block;
+      margin-bottom: 12px;
 
-  color: #666;
-  text-decoration: none;
+      color: #666;
+      text-decoration: none;
 
-  font-size: 12px;
-  line-height: 1.4;
+      font-size: 12px;
+      line-height: 1.4;
 
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-.daily-nav-heading:hover {
-  color: #000;
-}
+    .daily-nav-heading:hover {
+      color: #000;
+    }
 
 
-/* 최근 Daily 목록 */
+    /* 최근 Daily 목록 */
 
-.daily-preview {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
+    .daily-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
 
-.daily-preview-item {
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 10px;
+    .daily-preview-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
 
-  align-items: baseline;
+      align-items: baseline;
 
-  text-decoration: none;
-}
+      text-decoration: none;
+    }
 
-.daily-preview-date {
-  color: #aaa;
+    .daily-preview-date {
+      color: #aaa;
 
-  font-size: 10px;
-  line-height: 1.4;
+      font-size: 10px;
+      line-height: 1.4;
 
-  letter-spacing: 0.3px;
-}
+      letter-spacing: 0.3px;
+    }
 
-.daily-preview-title {
-  color: #666;
+    .daily-preview-title {
+      color: #666;
 
-  font-family: Georgia, "Noto Serif KR", serif;
-  font-size: 12px;
-  line-height: 1.45;
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 12px;
+      line-height: 1.45;
 
-  transition: color 0.2s;
-}
+      transition: color 0.2s;
+    }
 
-.daily-preview-item:hover .daily-preview-title {
-  color: #000;
-}
+    .daily-preview-item:hover .daily-preview-title {
+      color: #000;
+    }
 
 
     /* =========================
@@ -397,42 +402,10 @@
 
 
 <!-- =========================
-     HEADER
+     COMMON HEADER
 ========================= -->
 
-<header>
-
-  <div class="container">
-
-    <nav>
-
-      <div class="logo">
-
-        <a href="{{ '/' | relative_url }}">
-          Sunghwan Log
-        </a>
-
-      </div>
-
-
-      <div class="menu">
-
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/photography.html' | relative_url }}">Photography</a>
-        <a href="{{ '/daily.html' | relative_url }}">Daily</a>
-        <a href="{{ '/running.html' | relative_url }}">Running</a>
-        <a href="{{ '/reflections.html' | relative_url }}">Reflections</a>
-        <a href="{{ '/thoughts.html' | relative_url }}">Thoughts</a>
-        <a href="{{ '/moments.html' | relative_url }}">Moments</a>
-        <a href="{{ '/about.html' | relative_url }}">About</a>
-
-      </div>
-
-    </nav>
-
-  </div>
-
-</header>
+{% include header.html %}
 
 
 
@@ -601,52 +574,57 @@
       </div>
 
 
-<!-- =========================
-     DAILY CATEGORY
-========================= -->
 
-<div class="nav-daily">
+      <!-- =========================
+           DAILY CATEGORY
+      ========================= -->
 
-  <a
-    class="daily-nav-heading"
-    href="{{ '/daily.html' | relative_url }}"
-  >
-    DAILY
-  </a>
-
-
-  <div class="daily-preview">
-
-    {% assign preview_count = 0 %}
-
-    {% for daily_post in daily_posts %}
-
-      {% if daily_post.url != page.url and preview_count < 3 %}
+      <div class="nav-daily">
 
         <a
-          class="daily-preview-item"
-          href="{{ daily_post.url | relative_url }}"
+          class="daily-nav-heading"
+          href="{{ '/daily.html' | relative_url }}"
         >
-
-          <span class="daily-preview-date">
-            {{ daily_post.date | date: "%m.%d" }}
-          </span>
-
-          <span class="daily-preview-title">
-            {{ daily_post.title }}
-          </span>
-
+          DAILY
         </a>
 
-        {% assign preview_count = preview_count | plus: 1 %}
 
-      {% endif %}
+        <div class="daily-preview">
 
-    {% endfor %}
+          {% assign preview_count = 0 %}
 
-  </div>
+          {% for daily_post in daily_posts %}
 
-</div>
+            {% if daily_post.url != page.url and preview_count < 3 %}
+
+              <a
+                class="daily-preview-item"
+                href="{{ daily_post.url | relative_url }}"
+              >
+
+                <span class="daily-preview-date">
+                  {{ daily_post.date | date: "%m.%d" }}
+                </span>
+
+                <span class="daily-preview-title">
+                  {{ daily_post.title }}
+                </span>
+
+              </a>
+
+              {% assign preview_count = preview_count | plus: 1 %}
+
+            {% endif %}
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+
+    </div>
+
 
   </article>
 
@@ -660,8 +638,8 @@
 
 <footer>
 
-  © 2026 Sunghwan Log ·
-  Ordinary days, quietly collected.
+  © 2026 In Passing ·
+  A personal archive by Sunghwan.
 
 </footer>
 
