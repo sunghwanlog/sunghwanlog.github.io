@@ -1,5 +1,6 @@
 ---
 ---
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -7,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Photography | Sunghwan Log</title>
+  <title>Photography | In Passing</title>
 
   <style>
 
@@ -27,6 +28,11 @@
       max-width: 1100px;
       margin: auto;
     }
+
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       padding: 28px 0;
@@ -67,6 +73,16 @@
       color: #000;
     }
 
+    .menu a.active {
+      color: #000;
+      font-weight: 500;
+    }
+
+
+    /* =========================
+       PAGE HEADER
+    ========================= */
+
     .page-header {
       padding: 70px 0 45px;
     }
@@ -84,45 +100,50 @@
       font-size: 15px;
     }
 
+
+    /* =========================
+       GALLERY
+    ========================= */
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 25px;
     }
 
-.photo-card {
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid #e8e8e8;
-  background: white;
+    .photo-card {
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid #e8e8e8;
+      background: white;
 
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-}
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    }
 
-.photo-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-    
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
     .photo-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
 
-.photo-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
+    .photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
 
-.photo-card:hover img {
-  transform: scale(1.03);
-}
+    .photo-card:hover img {
+      transform: scale(1.03);
+    }
 
     .photo-content {
       padding: 18px;
@@ -145,6 +166,11 @@
       font-size: 14px;
     }
 
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       margin-top: 80px;
       padding: 35px 0;
@@ -154,7 +180,13 @@
       font-size: 13px;
     }
 
+
+    /* =========================
+       TABLET
+    ========================= */
+
     @media (max-width: 900px) {
+
       .gallery {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -173,9 +205,16 @@
         margin-right: 18px;
         margin-bottom: 8px;
       }
+
     }
 
+
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 650px) {
+
       .gallery {
         grid-template-columns: 1fr;
       }
@@ -183,43 +222,34 @@
       .page-header h1 {
         font-size: 38px;
       }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
-<header>
 
-  <div class="container">
+<!-- =========================
+     COMMON HEADER
+========================= -->
 
-    <nav>
+{% include header.html %}
 
-      <div class="logo">
-        <a href="index.html">Sunghwan Log</a>
-      </div>
 
-      <div class="menu">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/photography.html' | relative_url }}">Photography</a>
-        <a href="{{ '/daily.html' | relative_url }}">Daily</a>
-        <a href="{{ '/running.html' | relative_url }}">Running</a>
-        <a href="{{ '/reflections.html' | relative_url }}">Reflections</a>
-        <a href="{{ '/thoughts.html' | relative_url }}">Thoughts</a>
-        <a href="{{ '/moments.html' | relative_url }}">Moments</a>
-        <a href="{{ '/about.html' | relative_url }}">About</a>
-        
-      </div>
 
-    </nav>
-
-  </div>
-
-</header>
-
+<!-- =========================
+     MAIN
+========================= -->
 
 <main class="container">
+
+
+  <!-- =========================
+       PAGE HEADER
+  ========================= -->
 
   <section class="page-header">
 
@@ -233,56 +263,76 @@
   </section>
 
 
-<section class="gallery">
 
-  {% assign photo_posts = site.posts | where: "category", "photography" %}
+  <!-- =========================
+       GALLERY
+  ========================= -->
 
-  {% for post in photo_posts %}
+  <section class="gallery">
 
-    <a class="photo-link" href="{{ post.url | relative_url }}">
+    {% assign photo_posts = site.posts | where: "category", "photography" %}
 
-      <article class="photo-card">
+    {% for post in photo_posts %}
 
-        <img
-          src="{{ post.image | relative_url }}"
-          alt="{{ post.title }}"
-        >
+      <a
+        class="photo-link"
+        href="{{ post.url | relative_url }}"
+      >
 
-        <div class="photo-content">
+        <article class="photo-card">
 
-          {% if post.shooting_date and post.shooting_date != "" %}
-          <span class="photo-date">
-            {{ post.shooting_date }}
-          </span>
-          {% endif %}
+          <img
+            src="{{ post.image | relative_url }}"
+            alt="{{ post.title }}"
+          >
 
-          <h2>
-            {{ post.title }}
-          </h2>
+          <div class="photo-content">
 
-          <p>
-            {{ post.description }}
-          </p>
+            {% if post.shooting_date and post.shooting_date != "" %}
 
-        </div>
+              <span class="photo-date">
+                {{ post.shooting_date }}
+              </span>
 
-      </article>
+            {% endif %}
 
-    </a>
 
-  {% endfor %}
+            <h2>
+              {{ post.title }}
+            </h2>
 
-</section>
+
+            <p>
+              {{ post.description }}
+            </p>
+
+          </div>
+
+        </article>
+
+      </a>
+
+    {% endfor %}
+
+  </section>
+
 
 </main>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-  © 2026 Sunghwan Log ·
-  Ordinary days, quietly collected.
+  © 2026 In Passing ·
+  A personal archive by Sunghwan.
 
 </footer>
 
+
 </body>
+
 </html>
